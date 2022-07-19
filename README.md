@@ -10,7 +10,7 @@ Assim como descrito no documento de requisitos fornecido, o sistema de gerenciam
 
 ### Linguagem 
 
-* Java
+* Typescript
 
 ## Autores
 
@@ -20,8 +20,8 @@ Augusto Matos
 Jorge Pires
 [@jorgeprj](https://github.com/jorgeprj)
 
-Matheus
-[@xxx](https://github.com/XXXXXX)
+Matheus Silva
+[@Theu011](https://github.com/Theu011)
 
 ## Histórico de Versão
 
