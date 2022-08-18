@@ -1,4 +1,6 @@
 import { Usuario } from './usuario'
+import { Disciplinas } from './disciplinas'
+import { Perfil } from './perfil'
 
 export class Aluno extends Usuario{
     private RA: string;

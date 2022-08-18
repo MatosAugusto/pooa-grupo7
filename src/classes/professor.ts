@@ -1,5 +1,6 @@
 import { Usuario } from './usuario'
 import { Departamento } from './departamento'
+import { Perfil } from './perfil'
 
 class Professor extends Usuario{
     private nroUniversidade: string;

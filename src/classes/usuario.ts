@@ -1,3 +1,5 @@
+import { Perfil } from './perfil'
+
 export class Usuario {
     private nome: string;
     private cpf: string;

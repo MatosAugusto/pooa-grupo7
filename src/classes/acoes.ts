@@ -1,8 +1,9 @@
-class Acoes {
-    private nome: string;
-    private codigo: string;
+export class Acoes {
+    nome: string;
+    codigo: string;
     constructor(nome: string, codigo: string){
         this.nome = nome;
         this.codigo = codigo;
     }
+
 }
