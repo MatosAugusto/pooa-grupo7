@@ -1,0 +1,17 @@
+import { Evento } from '../classes/evento'
+
+class repositoryEvento {
+    private connection = { execute(query: string) {} };
+
+    insert(){
+    }
+    getAll(){
+    }
+    getById(){
+    }
+    delete(evento: Evento) {
+    }
+    update(evento: Evento){
+
+    }
+  }
