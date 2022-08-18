@@ -1,6 +1,6 @@
 import { Perfil } from '../classes/perfil'
 
-class repositoryPerfil {
+export class repositoryPerfil {
     private connection = { execute(query: string) {} };
 
     insert(){

@@ -1,6 +1,6 @@
-import { Acoes } from '../classes/acoes'
+import { Aluno } from '../classes/aluno'
 
-class repositoryAcoes {
+export class repositoryAluno {
     private connection = { execute(query: string) {} };
 
     insert(){
@@ -9,9 +9,9 @@ class repositoryAcoes {
     }
     getById(){
     }
-    delete(acao: Acoes) {
+    delete(aluno: Aluno) {
     }
-    update(acao: Acoes){
+    update(aluno: Aluno){
 
     }
   }

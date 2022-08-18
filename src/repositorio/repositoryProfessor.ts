@@ -1,6 +1,6 @@
 import { Professor } from '../classes/professor'
 
-class repositoryProfessor {
+export class repositoryProfessor {
     private connection = { execute(query: string) {} };
 
     insert(){

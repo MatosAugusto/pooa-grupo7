@@ -1,6 +1,6 @@
-import { Aluno } from '../classes/aluno'
+import { Local } from '../classes/local'
 
-class repositoryAluno {
+export class repositoryLocal {
     private connection = { execute(query: string) {} };
 
     insert(){
@@ -9,9 +9,9 @@ class repositoryAluno {
     }
     getById(){
     }
-    delete(aluno: Aluno) {
+    delete(local: Local) {
     }
-    update(aluno: Aluno){
+    update(local: Local){
 
     }
   }

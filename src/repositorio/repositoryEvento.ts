@@ -1,6 +1,6 @@
-import { Etapa } from '../classes/etapa'
+import { Evento } from '../classes/evento'
 
-class repositoryEtapa {
+export class repositoryEvento {
     private connection = { execute(query: string) {} };
 
     insert(){
@@ -9,9 +9,9 @@ class repositoryEtapa {
     }
     getById(){
     }
-    delete(etapa: Etapa) {
+    delete(evento: Evento) {
     }
-    update(etapa: Etapa){
+    update(evento: Evento){
 
     }
   }

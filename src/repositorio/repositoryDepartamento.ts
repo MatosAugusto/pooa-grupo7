@@ -1,6 +1,6 @@
 import { Departamento } from '../classes/departamento'
 
-class repositoryDepartamento {
+export class repositoryDepartamento {
     private connection = { execute(query: string) {} };
 
     insert(){

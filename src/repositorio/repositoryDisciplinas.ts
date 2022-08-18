@@ -1,6 +1,6 @@
 import { Disciplinas } from '../classes/disciplinas'
 
-class repositoryDisciplina {
+export class repositoryDisciplina {
     private connection = { execute(query: string) {} };
 
     insert(){

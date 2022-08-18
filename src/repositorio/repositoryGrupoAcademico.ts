@@ -1,6 +1,6 @@
 import { GrupoAcademico } from '../classes/grupoacademico'
 
-class repositoryGrupoAcademico {
+export class repositoryGrupoAcademico {
     private connection = { execute(query: string) {} };
 
     insert(){

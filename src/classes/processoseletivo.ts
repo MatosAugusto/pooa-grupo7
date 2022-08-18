@@ -1,7 +1,7 @@
 import { Aluno } from './aluno'
 import { Etapa } from './etapa'
 
-class ProcessoSeletivo{
+export class ProcessoSeletivo{
     private data: Date;
     private nroInscritos: number;
     private nroVagas: number;

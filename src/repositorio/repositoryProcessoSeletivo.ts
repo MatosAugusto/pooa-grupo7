@@ -1,6 +1,6 @@
 import { ProcessoSeletivo } from '../classes/processoseletivo'
 
-class repositoryProcessoSeletivo {
+export class repositoryProcessoSeletivo {
     private connection = { execute(query: string) {} };
 
     insert(){

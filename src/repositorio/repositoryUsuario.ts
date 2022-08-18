@@ -1,6 +1,6 @@
 import { Usuario } from '../classes/usuario'
 
-class repositoryUsuario {
+export class repositoryUsuario {
     private connection = { execute(query: string) {} };
     /*
     insert(usuario: Usuario){
