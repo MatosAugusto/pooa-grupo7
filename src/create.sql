@@ -165,7 +165,4 @@ create table GrupoEvento(
     foreign key(idGrupo) references GrupoAcademico(idGrupo),
     CONSTRAINT tipo_check CHECK (tipo IN('ORGANIZADOR', 'PARTICIPANTE'))
 );
-
-
-
-n 
+ 
