@@ -5,5 +5,11 @@ export class Acoes {
         this.nome = nome;
         this.codigo = codigo;
     }
-
+    public getNome(){
+        return this.nome;
+    }
+    
+    public getCodigo(){
+        return this.codigo;
+    }
 }

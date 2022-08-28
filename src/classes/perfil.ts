@@ -5,11 +5,10 @@ export class Perfil {
     private criadoEm: Date;
     private alteradoEm: Date;
     private acoes: Array<Acoes>;
-    constructor(nome: string, criadoEm: string, alteradoEm: string, acoes:Array<Acoes>){
+    constructor(nome: string, criadoEm: string, alteradoEm: string){
         this.nome = nome;
         this.criadoEm = new Date(criadoEm);
         this.alteradoEm = new Date(alteradoEm);
-        this.acoes = acoes;
     }
     public adicionarNovaAcao(acao: Acoes){ 
         this.acoes.push(acao);
@@ -23,5 +22,14 @@ export class Perfil {
             return true;
         }
         return false;
+    }
+    public getNome(){
+        return this.nome;
+    }
+    public getCriadoEm(){
+        return this.criadoEm;
+    }
+    public getAlteradoEm(){
+        return this.alteradoEm;
     }
 }
