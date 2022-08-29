@@ -1,5 +1,7 @@
 import { Aluno } from '../classes/aluno'
 import { Disciplinas } from '../classes/disciplinas';
+import { GrupoAcademico } from '../classes/grupoacademico';
+import { repositoryGrupoAcademico } from './repositoryGrupoAcademico';
 
 export class repositoryAluno {
     private connection = { execute(query: string) {} };

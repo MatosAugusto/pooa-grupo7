@@ -125,6 +125,20 @@ export class repositoryGrupoAcademico {
       const grupo: any = new GrupoAcademico(resultSet.id, resultSet.nome, resultSet.descricao, resultSet.dataCriacao, resultSet.statusGrupo, departamento, responsavel, representantes, resultSet.limiteParticipantes, participantes, eventosOrganizados, eventosParticipados);
       return grupo;
     }
+
+    getGruposAcademicosbyRa(ra : string){
+      const query = `select * from Participantes where raAluno = ${ra}`;
+      const resultSet: any = this.connection.execute(query);
+      let grupos: GrupoAcademico[] = [];
+      let grupo : GrupoAcademico;
+      let g = new repositoryGrupoAcademico;
+      while(resultSet){
+        grupo = g.getById(resultSet.idGrupo);
+        grupos.push(grupo);
+      }
+      return grupos;
+    }
+
     delete(grupo: GrupoAcademico) {
       const id = grupo.getId();
       const query = `delete from GrupoAcademico where idGrupo = ${id}`;
