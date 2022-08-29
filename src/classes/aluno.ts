@@ -12,4 +12,13 @@ export class Aluno extends Usuario{
         this.disciplinas = disciplinas;
         this.statusBiblioteca = statusBiblioteca;
     }
+    public getRA(){
+        return this.RA;
+    }
+    public getDisciplinas(){
+        return this.disciplinas;
+    }
+    public getStatusBiblioteca(){
+        return this.statusBiblioteca;
+    }
 }

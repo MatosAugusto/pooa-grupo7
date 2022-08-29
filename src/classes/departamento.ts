@@ -7,4 +7,13 @@ export class Departamento{
         this.nome = nome;
         this.sigla = sigla;
     }
+    public getID(){
+        return this.id;
+    }
+    public getNome(){
+        return this.nome;
+    }
+    public getSigla(){
+        return this.sigla;
+    }
 }

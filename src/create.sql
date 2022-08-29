@@ -21,7 +21,7 @@ create table AcoesPerfil(
     acao varchar(4) not null,
     perfil varchar(30) not null, 
     primary key (acao, perfil),
-    foreign key (acao) references Acao(codigo),
+    foreign key (acao) references Acoes(codigo),
     foreign key (perfil) references Perfil(nome)
 );
 
@@ -40,7 +40,7 @@ create table Aluno(
     ra varchar(10) not null,
     statusBiblioteca varchar(9),
     primary key (ra),
-    foreign key (cpfUsuario) references Usuario(cpfUsuario),
+    foreign key (cpfUsuario) references Usuario(cpf),
     CONSTRAINT status_check CHECK (statusBiblioteca IN('EM_DIA', 'DEVENDO'))
 );
 
@@ -57,7 +57,7 @@ create table Professor(
     nroUniversidade varchar(10) not null, 
     statusBiblioteca boolean,
     primary key (nroUniversidade), 
-    foreign key (cpfUsuario) references Usuario(cpfUsuario),
+    foreign key (cpfUsuario) references Usuario(cpf),
     foreign key (idDepartamento) references Departamento(idDepartamento)
 );
 
@@ -88,7 +88,7 @@ create table EtapaProcesso(
     processo bigint not null,
     primary key (etapa, processo),
     foreign key (etapa) references Etapa(idEtapa),
-    foreign key (processo) references Processo(idProcesso)
+    foreign key (processo) references ProcessoSeletivo(idProcesso)
 );
 
 create table GrupoAcademico(
@@ -102,7 +102,7 @@ create table GrupoAcademico(
     limiteParticipantes int,
     primary key(idGrupo),
     foreign key (idDepartamento) references Departamento(idDepartamento),
-    foreign key (cpfResponsavel) references Usuario(cpfUsuario)
+    foreign key (cpfResponsavel) references Usuario(cpf)
 );
 
 create table Representantes(
@@ -137,7 +137,7 @@ create table Evento(
     horaFim varchar(20) not null,
     cepLocal varchar(8) not null,
     primary key(nome),
-    foreign key (cepLocal) references Evento(cep)
+    foreign key (cepLocal) references LocalEvento(cep)
 );
 
 create table Organizadores(
