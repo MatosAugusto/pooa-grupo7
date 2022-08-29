@@ -4,7 +4,12 @@ export class repositoryAluno {
     private connection = { execute(query: string) {} };
 
     insert(aluno: Aluno){
-      const query = `insert into aluno (ra, disciplinas, statusBiblioteca) values (${aluno.getRA()},${aluno.getDisciplinas()}, ${aluno.getStatusBiblioteca()} )`;
+      const query = `insert into aluno (ra, statusBiblioteca) values (${aluno.getRA()}, ${aluno.getStatusBiblioteca()} )`;
+      let i : number = 0;
+      while(i<aluno.getDisciplinas().length){
+        const query2 =  `insert into AlunoDisciplina (raAluno, idDisciplina) values (${aluno.getRA()}, ${aluno.getDisciplinas()[i].getId()} )`;
+  
+      }
     }
     getAll(){
       let alunos: Aluno[] = [];
