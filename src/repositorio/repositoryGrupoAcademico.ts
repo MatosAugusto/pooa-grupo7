@@ -125,7 +125,7 @@ export class repositoryGrupoAcademico {
       const grupo: any = new GrupoAcademico(resultSet.id, resultSet.nome, resultSet.descricao, resultSet.dataCriacao, resultSet.statusGrupo, departamento, responsavel, representantes, resultSet.limiteParticipantes, participantes, eventosOrganizados, eventosParticipados);
       return grupo;
     }
-
+    // Os demais grupos precisarão recuperar quais grupos o aluno está participando
     getGruposAcademicosbyRa(ra : string){
       const query = `select * from Participantes where raAluno = ${ra}`;
       const resultSet: any = this.connection.execute(query);
