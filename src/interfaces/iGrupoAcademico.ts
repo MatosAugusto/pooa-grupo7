@@ -1,3 +1,3 @@
-interface GrupoAcademico{
+interface iGrupoAcademico{
     
 }

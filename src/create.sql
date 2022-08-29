@@ -62,9 +62,17 @@ create table Professor(
 );
 
 create table Disciplina(
-    idDisciplina bigint not null,
+    idDisciplina bigint not null auto_increment,
     nome varchar(256) not null,
     primary key(idDisciplina) 
+);
+
+create table AlunoDisciplinas(
+    raAluno varchar(10) not null,
+    idDisciplina bigint not null,
+    primary key(raAluno, idDisciplina),
+    foreign key(raAluno) references Aluno(ra),
+    foreign key(idDisciplina) references Disciplina(idDisciplina)
 );
 
 create table Etapa(

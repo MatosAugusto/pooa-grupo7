@@ -27,7 +27,7 @@ export class repositoryDisciplina {
     }
     delete(disciplina: Disciplinas) {
       const id = disciplina.getId();
-      const query = `delete from Aluno where idDisciplina = ${id}`;
+      const query = `delete from Disciplina where idDisciplina = ${id}`;
     }
     update(disciplina: Disciplinas){
 

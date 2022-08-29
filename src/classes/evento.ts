@@ -27,5 +27,38 @@ export class Evento{
         this.palestrantes = palestrantes;
         this.grupoResponsavel = grupoResponsavel;
     }
+
+    public getNome(){
+        return this.nome;
+    }
+    
+    public getData(){
+        return this.data;
+    }
+    
+    public getHoraInicio(){
+        return this.horaInicio;
+    }
+
+    public getHoraFim(){
+        return this.horaFim;
+    }
+    
+    public getOrganizadores(){
+        return this.organizadores;
+    }
+    
+    public getLocal(){
+        return this.local;
+    }
+
+    public getPalestrantes(){
+        return this.palestrantes;
+    }
+    
+    public getGrupoResponsavel(){
+        return this.grupoResponsavel;
+    }
+
     public atualizarEvento(){}
 }

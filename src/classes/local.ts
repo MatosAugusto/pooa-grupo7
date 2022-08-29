@@ -12,4 +12,24 @@ export class Local{
         this.bairro = bairro;
         this.cidade = cidade;
     }
+    
+    public getCep(){
+        return this.cep;
+    }
+    
+    public getLogradouro(){
+        return this.logradouro;
+    }
+    
+    public getNumero(){
+        return this.numero;
+    }
+    
+    public getBairro(){
+        return this.bairro;
+    }
+    
+    public getCidade(){
+        return this.cidade;
+    }
 }

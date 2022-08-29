@@ -30,6 +30,55 @@ export class GrupoAcademico{
         this.listaEventos = listaEventos;
         this.eventosParticipados = eventosParticipados;
     }
+
+    public getId(){
+        return this.id;
+    }
+
+    public getNome(){
+        return this.nome;
+    }
+
+    public getDescricao(){
+        return this.descricao;
+    }
+    
+    public getDataCriacao(){
+        return this.dataCriacao;
+    }
+    
+    public getStatus(){
+        return this.status;
+    }
+    
+    public getDepartamento(){
+        return this.departamento;
+    }
+    
+    public getResponsavel(){
+        return this.responsavel;
+    }
+
+    public getRepresentantes(){
+        return this.representantes;
+    }
+    
+    public getLimiteParticipantes(){
+        return this.limiteParticipantes;
+    }
+    
+    public getParticipantes(){
+        return this.participantes;
+    }
+    
+    public getListaEventos(){
+        return this.listaEventos;
+    }
+    
+    public getEventosParticipados(){
+        return this.eventosParticipados;
+    }
+
     public alterarLimiteParticipantes(limiteParticipantes:number){
         this.limiteParticipantes = limiteParticipantes;
     }
