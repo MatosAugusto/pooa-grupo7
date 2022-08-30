@@ -99,6 +99,13 @@ create table EtapaProcesso(
     foreign key (processo) references ProcessoSeletivo(idProcesso)
 );
 
+create table EtapaAluno(
+    etapa bigint not null,
+    raAluno varchar(10) not null,
+    primary key (etapa) references Etapa(idEtapa),
+    foreign key(raAluno) references Aluno(ra)
+);
+
 create table GrupoAcademico(
     idGrupo varchar(5) not null,
     nome varchar(256) not null, 
