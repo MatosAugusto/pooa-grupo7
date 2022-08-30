@@ -19,6 +19,11 @@ const PORT = process.env.PORT || 4000
 const HOSTNAME = process.env.HOSTNAME || 'http://localhost'
 // App Express
 const app = express()
+
+// JSON
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 // Endpoint raiz
 app.get('/', (req, res) => {
     res.send('Bem-vindo!')
