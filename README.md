@@ -12,6 +12,15 @@ Assim como descrito no documento de requisitos fornecido, o sistema de gerenciam
 
 * Typescript
 
+### Banco de Dados 
+
+* SQL
+
+### API
+
+* Node.js
+* Express
+
 ## Autores
 
 Augusto Matos
@@ -26,4 +35,6 @@ Matheus Silva
 ## Histórico de Versão
 
 * 0.1
-    * Primeira versão
+    * Esqueleto das classes que vão ser utilizadas e seus relacionamentos.
+* 0.2
+    * Criação de um Banco de Dados e um esqueleto da API. Além da estrtuturação quase completa das classes.
