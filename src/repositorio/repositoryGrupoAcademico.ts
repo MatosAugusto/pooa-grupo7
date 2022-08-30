@@ -125,6 +125,111 @@ export class repositoryGrupoAcademico {
       const grupo: any = new GrupoAcademico(resultSet.id, resultSet.nome, resultSet.descricao, resultSet.dataCriacao, resultSet.statusGrupo, departamento, responsavel, representantes, resultSet.limiteParticipantes, participantes, eventosOrganizados, eventosParticipados);
       return grupo;
     }
+    getByNome(nome: string){
+      let representantes: Aluno[] = [];
+      let participantes: Aluno[] = [];
+      let eventosOrganizados: Evento[] = [];
+      let eventosParticipados: Evento[] = [];
+      let departamento: Departamento;
+      let d = new repositoryDepartamento;
+      let responsavel: Usuario;
+      let r = new repositoryUsuario;
+      let aluno : Aluno;
+      let a = new repositoryAluno;
+      let evento : Evento;
+      let e = new repositoryEvento;
+      const query = `select * from GrupoAcademico where nome = ${nome}`;
+      const resultSet: any = this.connection.execute(query);
+
+      let query2 = `select * from Representantes where idGrupo = ${resultSet.idGrupo}`;
+        let resultSet2: any = this.connection.execute(query2);
+        while(resultSet2){
+            aluno = a.getById(resultSet2.raAluno);
+            representantes.push(aluno);
+        }
+        let query3 = `select * from Participantes where idGrupo = ${resultSet.idGrupo}`;
+        let resultSet3: any = this.connection.execute(query3);
+        while(resultSet3){
+            aluno = a.getById(resultSet3.raAluno);
+            participantes.push(aluno);
+        }
+        /*let query4 = `select * from GrupoEvento where idGrupo = ${resultSet.idGrupo} AND tipo = 'ORGANIZADOR'`;
+        let resultSet4: any = this.connection.execute(query4);
+        while(resultSet4){
+            evento = e.getByNome(resultSet4.nomeEvento);
+            eventosOrganizados.push(evento);
+        }
+        let query5 = `select * from GrupoEvento where idGrupo = ${resultSet.idGrupo} AND tipo = 'PARTICIPANTE'`;
+        let resultSet5: any = this.connection.execute(query5);
+        while(resultSet5){
+            evento = e.getByNome(resultSet5.nomeEvento);
+            eventosParticipados.push(evento);
+        }*/
+      departamento = d.getById(resultSet.idDepartamento)
+      responsavel = r.getByCpf(resultSet.cpfResponsavel)
+
+      const grupo: any = new GrupoAcademico(resultSet.id, resultSet.nome, resultSet.descricao, resultSet.dataCriacao, resultSet.statusGrupo, departamento, responsavel, representantes, resultSet.limiteParticipantes, participantes, eventosOrganizados, eventosParticipados);
+      return grupo;
+    }
+    
+    getParticipantes(id: string){
+      let participantes: Aluno[] = [];
+      let aluno : Aluno;
+      let a = new repositoryAluno;
+      let query = `select * from Participantes where idGrupo = ${id}`;
+      let resultSet: any = this.connection.execute(query);
+      while(resultSet){
+        aluno = a.getById(resultSet.raAluno);
+            participantes.push(aluno);
+        }
+       return participantes;
+    }
+
+    getResponsavel(id: string){
+      let responsavel: Usuario;
+      let r = new repositoryUsuario;
+      const query = `select * from GrupoAcademico where idGrupo = ${id}`;
+      const resultSet: any = this.connection.execute(query);
+      
+      responsavel = r.getByCpf(resultSet.cpfResponsavel);
+
+      return responsavel;
+    }
+
+    getEventosOrganizados(id: string){
+      let eventosOrganizados: Evento[] = [];
+      let evento : Evento;
+      let e = new repositoryEvento;
+      /*let query = `select * from GrupoEvento where idGrupo = ${id} AND tipo = 'ORGANIZADOR'`;
+      let resultSet: any = this.connection.execute(query);
+      while(resultSet){
+        evento = e.getByNome(resultSet.nomeEvento);
+        eventosOrganizados.push(evento);
+      }*/
+        
+      
+      return eventosOrganizados;
+    }
+
+    getEventosParticipados(id: string){
+      let eventosParticipados: Evento[] = [];
+      let evento : Evento;
+      let e = new repositoryEvento;
+      /*let query = `select * from GrupoEvento where idGrupo = ${id} AND tipo = 'PARTICIPANTE'`;
+      let resultSet: any = this.connection.execute(query);
+      while(resultSet){
+        evento = e.getByNome(resultSet.nomeEvento);
+        eventosParticipados.push(evento);
+      }*/
+        
+      
+      return eventosParticipados;
+    }
+
+    getMembrosAtivos(id:string){
+      
+    }
+
     // Os demais grupos precisarão recuperar quais grupos o aluno está participando
     getGruposAcademicosbyRa(ra : string){
       const query = `select * from Participantes where raAluno = ${ra}`;
