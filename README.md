@@ -6,6 +6,8 @@ Projeto realizado para a disciplina de Programação Orientada a Objetos Avança
 
 Assim como descrito no documento de requisitos fornecido, o sistema de gerenciamento de grupos acadêmicos tem como objetivo o gerenciar (cadastrar, consultas, incluir aluno, etc) grupos acadêmicos no contexto de uma universidade X. Para tal, o sistema deve fornecer endpoint REST para que gerenciamento seja feito por outro sistema, pessoa ou front-end. 
 
+O documento de requisitos original foi fornecido apenas para os alunos da disciplinas. Então, foi criado um resumo que você poderá encontrar em /docs.
+
 ## Detalhes 
 
 ### Linguagem 
