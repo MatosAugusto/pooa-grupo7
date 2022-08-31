@@ -42,4 +42,4 @@ Matheus Silva
     * Criação de um Banco de Dados e um esqueleto da API. Além da estrtuturação quase completa das classes.
  
  ## Links Externos
- * [Documento de Requisitos](https://github.com/MatosAugusto/pooa-grupo7/blob/main/docs/Requisitos%20-%20Grupo%207.pdf)
+ * [Documento de Requisitos](https://github.com/MatosAugusto/pooa-grupo7/blob/main/docs/Requisitos.md)
