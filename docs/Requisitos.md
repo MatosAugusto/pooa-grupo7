@@ -27,4 +27,4 @@ O sistema de gerenciamento de grupos acadêmicos tem como objetivo gerenciar gru
 
 ## Requisitos Não Funcionais
 
-* *Ainda não foi simplificado
+* *Ainda não foi simplificado*
