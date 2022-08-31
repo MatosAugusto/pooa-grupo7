@@ -1,4 +1,4 @@
-import { usuarioService } from "../services/usuarioService"
+import { usuarioService } from "../services/serviceUsuario"
 class controllerUsuario{
-    private userService = new usuarioService();
+    private serviceUsuario = new serviceUsuario();
 }

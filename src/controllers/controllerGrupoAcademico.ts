@@ -1,28 +1,28 @@
 import { Usuario } from "../classes/usuario";
-import { grupoacademicoService } from "../services/grupoAcademicoService";
+import { grupoacademicoService } from "../services/serviceGrupoAcademico";
 class ControllerGrupoAcademico{
-    private gpAcadService = new grupoacademicoService(); 
+    private serviceGrupoAcademico = new serviceGrupoAcademico(); 
     
     async getGrupoAcademicoByID(idGrupo: string, user : Usuario){
-        await this.gpAcadService.getById(idGrupo, user);
+        await this.serviceGrupoAcademico.getById(idGrupo, user);
     }
     async getGrupoAcademicoByNome(nomeGrupo: string, user : Usuario){
-        await this.gpAcadService.getByNome(nomeGrupo, user);   
+        await this.serviceGrupoAcademico.getByNome(nomeGrupo, user);   
     }
     async getParticipantes(idGrupo: string, user : Usuario){
-        await this.gpAcadService.getParticipantes(idGrupo, user);
+        await this.serviceGrupoAcademico.getParticipantes(idGrupo, user);
     }
     async getResponsavel(idGrupo: string, user : Usuario){
-        await this.gpAcadService.getResponsavel(idGrupo, user);
+        await this.serviceGrupoAcademico.getResponsavel(idGrupo, user);
     }
     async getEventosOrganizadosGrupo(idGrupo: string, user : Usuario){
-        await this.gpAcadService.getEventosOrganizados(idGrupo, user);
+        await this.serviceGrupoAcademico.getEventosOrganizados(idGrupo, user);
     }
     async getEventosParticipadosGrupo(idGrupo: string, user : Usuario){
-        await this.gpAcadService.getEventosParticipados(idGrupo, user);
+        await this.serviceGrupoAcademico.getEventosParticipados(idGrupo, user);
     }
     async getMembrosAtivos(idGrupo: string, user : Usuario){
-        await this.gpAcadService.getMembrosAtivos(idGrupo, user);
+        await this.serviceGrupoAcademico.getMembrosAtivos(idGrupo, user);
     }
 
 }
