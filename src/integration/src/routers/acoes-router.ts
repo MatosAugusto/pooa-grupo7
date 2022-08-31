@@ -3,7 +3,9 @@ import Acoes from '../models/acoes'
 
 const acoesRouter = express.Router()
 acoesRouter.post('/acoes', (req, res) => {
-    res.send('Cria novo item')
+    const acao: Acoes = req.body
+    const id = 123
+    res.status(201).location(`/acoes/${id}`).send()
 })
 acoesRouter.get('/acoes', (req, res) => {
     const acoes: Acoes[] = [
@@ -29,10 +31,10 @@ acoesRouter.get('/acoes/:id', (req, res) => {
 })
 acoesRouter.put('/acoes/:id', (req, res) => {
     const id: number = +req.params.id
-    res.send(`Atualiza a acao ${id}`)
+    res.status(204).send()
 })
 acoesRouter.delete('/acoes/:id', (req, res) => {
     const id: number = +req.params.id
-    res.send(`Apaga a acao ${id}`)
+    res.status(204).send()
 })
 export default acoesRouter

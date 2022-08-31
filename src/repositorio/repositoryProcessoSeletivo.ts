@@ -4,16 +4,19 @@ import { ProcessoSeletivo } from '../classes/processoseletivo'
 export class repositoryProcessoSeletivo {
     private connection = { execute(query: string) {} };
 
-    insert(){
+    insert(processo: ProcessoSeletivo){
+      const query = `insert into ProcessoSeletivo (dataProcesso, nroInscritos, nroVagas, nroAprovados) values (${processo.getData()}, ${processo.getNroInscritos()}, ${processo.getNroVagas()}, ${processo.getNroAprovados()} )`;
     }
     insertAluno(aluno: Aluno){
-
     }
     getAll(){
+      const query = 'SELECT * FROM ProcessoSeletivo';
     }
-    getById(){
+    getById(id: bigint){
+      const query = `SELECT * FROM ProcessoSeletivo WHERE idProcesso = ${id}`;
     }
-    delete(ps: ProcessoSeletivo) {
+    delete(id: bigint) {
+      const query = `DELETE FROM ProcessoSeletivo WHERE idProcesso = ${id}`;
     }
     update(ps: ProcessoSeletivo){
 

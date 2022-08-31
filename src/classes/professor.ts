@@ -12,4 +12,13 @@ export class Professor extends Usuario{
         this.departamento = departamento;
         this.statusBiblioteca = statusBiblioteca;
     }
+    public getUniversidade(){
+        return this.nroUniversidade;
+    }
+    public getDepartamento(){
+        return this.departamento;
+    }
+    public getstatusBiblioteca(){
+        return this.statusBiblioteca;
+    }
 }

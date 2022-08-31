@@ -14,5 +14,17 @@ export class ProcessoSeletivo{
         this.nroAprovados = nroAprovados;
         this.etapas = etapas;
     }
+    public getData(){
+        return this.data;
+    }
+    public getNroInscritos(){
+        return this.nroInscritos;
+    }
+    public getNroVagas(){
+        return this.nroVagas;
+    }
+    public getNroAprovados(){
+        return this.nroAprovados;
+    }
     public verificaAluno(aluno: Aluno){}
 }
