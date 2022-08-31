@@ -1,7 +1,7 @@
 import { Usuario } from "../classes/usuario";
-import { eventoService } from "../services/eventoService"
+import { eventoService } from "../services/serviceEvento"
 class ControllerEvento{
-    private eventoService = new eventoService();
+    private serviceEvento = new serviceEvento();
     
     adicionarPalestrante(usuario: Usuario) {
         
