@@ -1,5 +1,5 @@
 import { Usuario } from "../classes/usuario";
-import { eventoService } from "../services/serviceEvento"
+import { serviceEvento } from "../services/serviceEvento"
 class controllerEvento{
     private serviceEvento = new serviceEvento();
     
