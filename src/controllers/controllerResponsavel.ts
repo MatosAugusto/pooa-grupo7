@@ -1,8 +1,8 @@
-import { responsavelService } from "../services/serviceResponsavel";
+import { serviceResponsavel } from "../services/serviceResponsavel";
 import { GrupoAcademico } from "../classes/grupoacademico";
 import { Usuario } from "../classes/usuario";
 
-class ControllerResponsavel{
+class controllerResponsavel{
     private serviceResponsavel = new serviceResponsavel();
     
     incluirParticipante(participante:Usuario){
