@@ -1,5 +1,5 @@
 import { repositoryEvento } from "../repositorio/repositoryEvento";
 
-export class eventoService{
+export class serviceEvento{
     private eventoRepository = new repositoryEvento();
 }
