@@ -2,12 +2,12 @@ import { Aluno } from "../classes/aluno";
 import { ProcessoSeletivo } from "../classes/processoseletivo";
 import { repositoryAluno } from "../repositorio/repositoryAluno";
 import { repositoryPerfil } from "../repositorio/repositoryPerfil";
-import { processoSeletivoService } from "./processoSeletivoService";
+import { serviceProcessoSeletivo } from "./serviceProcessoSeletivo";
 import { repositoryProcessoSeletivo } from "../repositorio/repositoryProcessoSeletivo";
-export class alunoService{
+export class serviceAluno{
     private alunoRepository = new repositoryAluno();
     private perfilRepository = new repositoryPerfil();
-    private psService = new processoSeletivoService(); 
+    private psService = new serviceProcessoSeletivo(); 
     private psRepository = new repositoryProcessoSeletivo();
     async inscreverNoPS(aluno: Aluno, ps: ProcessoSeletivo){
         if(await !this.alunoRepository.getById(aluno.getRA())){
