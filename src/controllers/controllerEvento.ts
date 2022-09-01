@@ -1,6 +1,6 @@
 import { Usuario } from "../classes/usuario";
 import { eventoService } from "../services/serviceEvento"
-class ControllerEvento{
+class controllerEvento{
     private serviceEvento = new serviceEvento();
     
     adicionarPalestrante(usuario: Usuario) {
