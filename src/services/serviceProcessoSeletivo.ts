@@ -2,10 +2,10 @@ import { Aluno } from "../classes/aluno";
 import { repositoryAluno } from "../repositorio/repositoryAluno";
 import { checkStatusAluno } from "../interfaces/iIntegracao";
 
-export class processoSeletivoService{
-    private alunoRepository = new repositoryAluno();
+export class serviceProcessoSeletivo{
+    private repositoryAluno = new repositoryAluno();
     async checarAluno(aluno: Aluno){
-        if(!this.alunoRepository.getById(aluno.getRA())){
+        if(!this.repositoryAluno.getById(aluno.getRA())){
             throw new Error("Usuario não cadastrado!");           
         }
         if(!checkStatusAluno(aluno.getRA())){
