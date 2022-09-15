@@ -1,4 +1,4 @@
-import { alunoService } from "../services/serviceAluno"
+import { serviceAluno } from "../services/serviceAluno"
 import { Aluno } from "../classes/aluno"
 import { ProcessoSeletivo } from "../classes/processoseletivo"
 class controllerAluno{

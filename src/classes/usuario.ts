@@ -13,7 +13,8 @@ export class Usuario {
         this.senha = senha;
         this.perfil = perfil;
     }
-    public atualizaUsuario(idUsuario: string, novosDados: Usuario){}
+    public atualizaUsuario(idUsuario: string, novosDados: Usuario){
+    }
     public removeUsuario(idUsuario: string){}
     public getNome(){
         return this.nome;
@@ -30,5 +31,7 @@ export class Usuario {
     public getPerfil() : Perfil{
         return this.perfil;
     }
-    
+    public setPerfil(perfil: Perfil){
+        this.perfil=perfil;
+    }
 }
