@@ -5,6 +5,6 @@ class controllerAluno{
     private serviceAluno = new serviceAluno();
 
     async inscreverNoPS(aluno: Aluno, ps : ProcessoSeletivo){
-        await this.inscreverNoPS(aluno, ps);
+        await this.serviceAluno.inscreverNoPS(aluno, ps);
     }
 }

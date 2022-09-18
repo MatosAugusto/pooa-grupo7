@@ -1,6 +1,7 @@
 import { Aluno } from '../classes/aluno';
 import { Evento } from '../classes/evento'
 import { GrupoAcademico } from '../classes/grupoacademico';
+import { Local } from '../classes/local';
 import { Usuario } from '../classes/usuario';
 import { repositoryAluno } from './repositoryAluno';
 import { repositoryGrupoAcademico } from './repositoryGrupoAcademico';
@@ -95,7 +96,23 @@ export class repositoryEvento {
       const nome = evento.getNome();
       const query = `delete from Evento where nome = ${nome}`;
     }
-    update(evento: Evento){
-      const query = `update Evento set horaInicio = ${evento.getHoraInicio()}, horaFim = ${evento.getHoraFim}, cepLocal = ${evento.getLocal().getCep} where nome = ${evento.getNome()}`;
+    update(evento : Evento){
+      const query = `update Evento set dataCriacao = ${evento.getData}, horaInicio = ${evento.getHoraInicio()}, horaFim = ${evento.getHoraFim}, cepLocal = ${evento.getLocal().getCep} where nome = ${evento.getNome()}`;
+    }
+
+    insertPalestrante(usuario : Usuario, evento : Evento){
+      const query = `insert into Palestrantes (nomeEvento, cpfUsuario) values (${evento.getNome}, ${usuario.getNome})`;
+    }
+
+    insertOrganizador(aluno : Aluno, evento : Evento){
+      const query = `insert into Organizadores (nomeEvento, raAluno) values (${evento.getNome}, ${aluno.getRA})`;
+    }
+
+    alterarLocal(local : Local, evento : Evento){
+      const query = `update Evento set cepLocal = ${local.getCep} where nome = ${evento.getNome()}`;
+    }
+
+    alterarData(data : Date, evento : Evento){
+      const query = `update Evento set dataCriacao = ${data} where nome = ${evento.getNome()}`;
     }
   }
