@@ -1,7 +1,11 @@
 import { Aluno } from '../classes/aluno'
+import { Departamento } from '../classes/departamento';
 import { Disciplinas } from '../classes/disciplinas';
 import { GrupoAcademico } from '../classes/grupoacademico';
+import { Usuario } from '../classes/usuario';
+import { repositoryDisciplina } from './repositoryDisciplinas';
 import { repositoryGrupoAcademico } from './repositoryGrupoAcademico';
+import { repositoryUsuario } from './repositoryUsuario';
 
 export class repositoryAluno {
     private connection = { execute(query: string) {} };
@@ -16,18 +20,20 @@ export class repositoryAluno {
     getAll(){
       let alunos: Aluno[] = [];
       let disciplinas: Disciplinas[] = [];
+      let disciplina : Disciplinas;
       const query = `select * from Aluno`;
       const resultSet: any = this.connection.execute(query);
-      while(resultSet){//ver repositoryGrupoAcademico para simplificar
+      let d = new repositoryDisciplina;
+      let u = new repositoryUsuario;
+      while(resultSet){
         let query2 = `select * from AlunoDisciplinas where raAluno = ${resultSet.ra}`;
         let resultSet2: any = this.connection.execute(query2);
         while(resultSet2){
-          let query3 = `select * from Disciplinas where idDisciplina = ${resultSet2.idDisciplina}`;
-          let resultSet3: any = this.connection.execute(query3);
-          let disciplina = new Disciplinas(resultSet3.id, resultSet3.nome);
+          disciplina = d.getById(resultSet2.idDisciplina);
           disciplinas.push(disciplina);
         }
-        let aluno: any = new Aluno(resultSet.ra, disciplinas, resultSet.statusBiblioteca, resultSet.nome, resultSet.cpf, resultSet.dataNascimento, resultSet.senha, resultSet.perfil);
+        let usuario: Usuario = u.getByCpf(resultSet.cpf);
+        let aluno: any = new Aluno(resultSet.ra, disciplinas, resultSet.statusBiblioteca, usuario.getNome(), usuario.getCpf(), usuario.getDataNascimento(), usuario.getSenha(), usuario.getPerfil());
 
         alunos.push(aluno);
         disciplinas.splice(0,disciplinas.length);
@@ -35,10 +41,20 @@ export class repositoryAluno {
       return alunos;
     }
     getById(ra: string){
+      let disciplinas: Disciplinas[] = [];
+      let disciplina : Disciplinas;
+      let d = new repositoryDisciplina;
       const query = `select * from Aluno where ra = ${ra}`;
       const resultSet: any = this.connection.execute(query);
-
-      const aluno: any = new Aluno(resultSet.ra, resultSet.disciplinas, resultSet.statusBiblioteca, resultSet.nome, resultSet.cpf, resultSet.dataNascimento, resultSet.senha, resultSet.perfil);
+      let query2 = `select * from AlunoDisciplinas where raAluno = ${resultSet.ra}`;
+      let resultSet2: any = this.connection.execute(query2);
+      while(resultSet2){
+        disciplina = d.getById(resultSet2.idDisciplina);
+        disciplinas.push(disciplina);
+      }
+      let u = new repositoryUsuario;
+      let usuario: Usuario = u.getByCpf(resultSet.cpf);
+      let aluno: any = new Aluno(resultSet.ra, disciplinas, resultSet.statusBiblioteca, usuario.getNome(), usuario.getCpf(), usuario.getDataNascimento(), usuario.getSenha(), usuario.getPerfil());
       return aluno;
     }
     delete(aluno: Aluno) {
@@ -46,6 +62,6 @@ export class repositoryAluno {
       const query = `delete from Aluno where ra = ${ra}`;
     }
     update(aluno: Aluno){
-
+      const query = `update aluno set statusBiblioteca=${aluno.getStatusBiblioteca} where ra = ${aluno.getRA()}`;
     }
   }

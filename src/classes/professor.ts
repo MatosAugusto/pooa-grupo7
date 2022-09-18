@@ -18,7 +18,7 @@ export class Professor extends Usuario{
     public getDepartamento(){
         return this.departamento;
     }
-    public getstatusBiblioteca(){
+    public getStatusBiblioteca(){
         return this.statusBiblioteca;
     }
 }

@@ -29,6 +29,6 @@ export class repositoryAcoes {
       const query = `delete from acoes where codigo = ${codigo}`;
     }
     update(acao: Acoes){
-      
+      const query = `update acoes set nome = ${acao.getNome()} where codigo = ${acao.getCodigo()}`;
     }
   }

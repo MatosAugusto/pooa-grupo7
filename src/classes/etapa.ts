@@ -1,11 +1,11 @@
 import { Aluno } from './aluno'
 
 export class Etapa{
-    private id: bigint;
+    private id: string;
     private nome: string;
     private descricao: string;
     private participantes: Aluno[];
-    constructor(id: bigint, nome: string, descricao: string, participantes : Aluno[]){
+    constructor(id: string, nome: string, descricao: string, participantes : Aluno[]){
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;

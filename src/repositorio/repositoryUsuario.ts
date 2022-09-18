@@ -33,6 +33,6 @@ export class repositoryUsuario {
     }
 
     update(usuario: Usuario){
-
+      const query = `update Usuario set nome = ${usuario.getNome()}, dataNascimento = ${usuario.getDataNascimento}, senha = ${usuario.getSenha}, perfil = ${usuario.getPerfil().getNome} where cpf = ${usuario.getCpf()}`;
     }
   }
