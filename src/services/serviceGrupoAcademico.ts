@@ -2,14 +2,14 @@ import { Usuario } from "../classes/usuario";
 import { Perfil } from "../classes/perfil";
 import { repositoryGrupoAcademico } from "../repositorio/repositoryGrupoAcademico";
 import { Acoes } from "../classes/acoes";
-export class grupoacademicoService{
-    private grupoAcadRepository = new repositoryGrupoAcademico();
+export class serviceGrupoAcademico{
+    private repositoryGrupoAcad = new repositoryGrupoAcademico();
     async getById(idGrupo: string, user : Usuario){
         const buscarGrupo = new Acoes("BUSCAR_GRUPO", "001")
         if (!user.getPerfil().podeExecutar(buscarGrupo)) {
             throw new Error("Você não pode realizar essa ação!");
         }
-        const grupo = await this.grupoAcadRepository.getById(idGrupo);
+        const grupo = await this.repositoryGrupoAcad.getById(idGrupo);
         
         return grupo;
     }
@@ -18,7 +18,7 @@ export class grupoacademicoService{
         if (!user.getPerfil().podeExecutar(buscarGrupo)) {
             throw new Error("Você não pode realizar essa ação!");
         }
-        const grupo = await this.grupoAcadRepository.getByNome(nomeGrupo);
+        const grupo = await this.repositoryGrupoAcad.getByNome(nomeGrupo);
         
         return grupo;
     }
@@ -28,7 +28,7 @@ export class grupoacademicoService{
         if (!user.getPerfil().podeExecutar(buscarParticipantes)) {
             throw new Error("Você não pode realizar essa ação!");
         }
-        const participantes = await this.grupoAcadRepository.getParticipantes(idGrupo);
+        const participantes = await this.repositoryGrupoAcad.getParticipantes(idGrupo);
         
         return participantes;
     }
@@ -38,7 +38,7 @@ export class grupoacademicoService{
         if (!user.getPerfil().podeExecutar(buscarResponsavel)) {
             throw new Error("Você não pode realizar essa ação!");
         }
-        const responsavel = await this.grupoAcadRepository.getResponsavel(idGrupo);
+        const responsavel = await this.repositoryGrupoAcad.getResponsavel(idGrupo);
         
         return responsavel;
     }
@@ -48,7 +48,7 @@ export class grupoacademicoService{
         if (!user.getPerfil().podeExecutar(buscarEventos)) {
             throw new Error("Você não pode realizar essa ação!");
         }
-        const eventos = await this.grupoAcadRepository.getEventosOrganizados(idGrupo);
+        const eventos = await this.repositoryGrupoAcad.getEventosOrganizados(idGrupo);
         
         return eventos;
     }
@@ -58,7 +58,7 @@ export class grupoacademicoService{
         if (!user.getPerfil().podeExecutar(buscarEventos)) {
             throw new Error("Você não pode realizar essa ação!");
         }
-        const eventos = await this.grupoAcadRepository.getEventosParticipados(idGrupo);
+        const eventos = await this.repositoryGrupoAcad.getEventosParticipados(idGrupo);
         
         return eventos;
     }
@@ -68,7 +68,7 @@ export class grupoacademicoService{
         if (!user.getPerfil().podeExecutar(buscarMembros)) {
             throw new Error("Você não pode realizar essa ação!");
         }
-        const membros = await this.grupoAcadRepository.getMembrosAtivos(idGrupo);
+        const membros = await this.repositoryGrupoAcad.getMembrosAtivos(idGrupo);
         
         return membros;
     }

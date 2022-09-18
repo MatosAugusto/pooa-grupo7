@@ -32,6 +32,6 @@ export class repositoryPerfil {
    
     }
     update(perfil: Perfil){
-
+      const query = `update Perfil set alteradoEm = ${perfil.getAlteradoEm()} where nome = ${perfil.getNome()}`;
     }
   }

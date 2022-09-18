@@ -17,7 +17,7 @@ export class repositoryDepartamento {
       }
       return departamentos;
     }
-    getById(id: bigint){
+    getById(id: string){
       const query = `select * from Departamento where idDepartamento = ${id}`;
       const resultSet: any = this.connection.execute(query);
 
@@ -29,6 +29,6 @@ export class repositoryDepartamento {
       const query = `delete from Departamento where idDepartamento = ${id}`;
     }
     update(dpto: Departamento){
-
+      const query = `update departamento set nome = ${dpto.getNome()}, sigla = ${dpto.getSigla} where idDepartamento = ${dpto.getID()}`;
     }
   }

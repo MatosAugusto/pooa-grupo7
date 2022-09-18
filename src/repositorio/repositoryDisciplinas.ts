@@ -4,7 +4,6 @@ export class repositoryDisciplina {
     private connection = { execute(query: string) {} };
 
     insert(disciplina: Disciplinas){
-      // const query = `insert into Disciplina (idDisciplina, nome) values (${disciplina.getId()},${disciplina.getNome()} )`;
       const query = `insert into Disciplina (nome) values (${disciplina.getNome()} )`;
     }
     getAll(){
@@ -18,7 +17,7 @@ export class repositoryDisciplina {
       }
       return disciplinas;
     }
-    getById(id:bigint){
+    getById(id:string){
       const query = `select * from Disciplina where idDisciplina = ${id}`;
       const resultSet: any = this.connection.execute(query);
 
@@ -30,6 +29,6 @@ export class repositoryDisciplina {
       const query = `delete from Disciplina where idDisciplina = ${id}`;
     }
     update(disciplina: Disciplinas){
-
+      const query = `update Disciplina set nome = ${disciplina.getNome()} where idDisciplina = ${disciplina.getId()}`;
     }
   }

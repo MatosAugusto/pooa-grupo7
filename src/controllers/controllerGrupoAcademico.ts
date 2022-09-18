@@ -1,6 +1,6 @@
 import { Usuario } from "../classes/usuario";
-import { grupoacademicoService } from "../services/serviceGrupoAcademico";
-class ControllerGrupoAcademico{
+import { serviceGrupoAcademico } from "../services/serviceGrupoAcademico";
+class controllerGrupoAcademico{
     private serviceGrupoAcademico = new serviceGrupoAcademico(); 
     
     async getGrupoAcademicoByID(idGrupo: string, user : Usuario){

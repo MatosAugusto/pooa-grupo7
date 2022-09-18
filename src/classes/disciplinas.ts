@@ -1,7 +1,7 @@
 export class Disciplinas{
-    private id: bigint;
+    private id: string;
     private nome: string;
-    constructor(id: bigint, nome: string){
+    constructor(id: string, nome: string){
         this.id = id;
         this.nome = nome;
     }

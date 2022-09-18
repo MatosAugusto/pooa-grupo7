@@ -86,4 +86,14 @@ export class GrupoAcademico{
         this.status = status;
     }
     public acrescentarEvento(evento: Evento){}
+    public setResponsavel(usuario: Usuario){
+        this.responsavel=usuario;
+    }
+    public insertParticipante(aluno: Aluno){
+        this.participantes.push(aluno);
+    }
+    public removeParticipante(aluno: Aluno){
+        const index = this.participantes.indexOf( aluno );
+        this.participantes.splice(index, 1);
+    }
 }

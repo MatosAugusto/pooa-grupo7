@@ -1,7 +1,7 @@
 import { Perfil } from "../classes/perfil";
 import { Usuario } from "../classes/usuario";
 import { Disciplinas } from "../classes/disciplinas";
-import { usuarioService } from "../services/usuarioService";
+import { serviceUsuario } from "../services/serviceUsuario";
 
 export interface iIntegracao{
     (ra: string): void;
