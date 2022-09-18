@@ -15,7 +15,7 @@ export class repositoryGrupoAcademico {
       const query = `insert into GrupoAcademico (id, nome, descricao, dataCriacao, statusGrupo, idDepartamento, cpfResponsavel, limiteParticipantes) values (${grupo.getId()}, ${grupo.getNome()}, ${grupo.getDescricao()}, ${grupo.getDataCriacao()}, ${grupo.getStatus()}, ${grupo.getDepartamento().getID()}, ${grupo.getResponsavel().getCpf}, ${grupo.getLimiteParticipantes()} )`;
       let i : number = 0;
       while(i<grupo.getParticipantes.length){
-        const query2 =  `insert into participantes (idGrupo, raAluno) values (${grupo.getId}, ${grupo.getParticipantes[i].getRA()} )`;
+        const query2 =  `insert into participantes (idGrupo, raAluno) values (${grupo.getId()}, ${grupo.getParticipantes[i].getRA()} )`;
       }
       i = 0;
       while(i<grupo.getRepresentantes.length){
@@ -227,6 +227,7 @@ export class repositoryGrupoAcademico {
     }
 
     getMembrosAtivos(id:string){
+      const query = `select * from Participantes where `
       
     }
 

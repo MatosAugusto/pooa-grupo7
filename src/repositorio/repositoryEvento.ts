@@ -20,6 +20,7 @@ export class repositoryEvento {
       }
     }
     getAll(){
+      const query = `SELECT * FROM Evento`;
     }
     getByNome(nome: string){
       return Evento;
