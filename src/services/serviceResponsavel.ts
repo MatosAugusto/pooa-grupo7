@@ -1,6 +1,6 @@
-import { repositoryUsuario } from "../repositorio/repositoryUsuario";
-import { repositoryPerfil } from "../repositorio/repositoryPerfil";
-import { repositoryGrupoAcademico } from "../repositorio/repositoryGrupoAcademico";
+import { repositoryUsuario } from "../repositories/repositoryUsuario";
+import { repositoryPerfil } from "../repositories/repositoryPerfil";
+import { repositoryGrupoAcademico } from "../repositories/repositoryGrupoAcademico";
 import { Usuario } from "../classes/usuario";
 import { GrupoAcademico } from "../classes/grupoacademico";
 import { Aluno } from "../classes/aluno";
@@ -77,5 +77,10 @@ export class serviceResponsavel{
 
         grupo.removeParticipante(aluno);
         this.repositoryGrupoAcademico.update(grupo);
+    }
+
+    async mudarStatusGrupoAcademico(grupo: GrupoAcademico){
+        grupo.changeStatus()
+        this.repositoryGrupoAcademico.update(grupo)
     }
 }

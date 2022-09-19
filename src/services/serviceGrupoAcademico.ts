@@ -1,11 +1,13 @@
 import { Usuario } from "../classes/usuario";
 import { Perfil } from "../classes/perfil";
-import { repositoryGrupoAcademico } from "../repositorio/repositoryGrupoAcademico";
-import { Acoes } from "../classes/acoes";
+import { repositoryGrupoAcademico } from "../repositories/repositoryGrupoAcademico";
+import { Acao } from "../classes/acao";
+
 export class serviceGrupoAcademico{
     private repositoryGrupoAcad = new repositoryGrupoAcademico();
-    async getById(idGrupo: string, user : Usuario){
-        const buscarGrupo = new Acoes("BUSCAR_GRUPO", "001")
+    
+    async getByID(idGrupo: string, user : Usuario){
+        const buscarGrupo = new Acao("BUSCAR_GRUPO", "001")
         if (!user.getPerfil().podeExecutar(buscarGrupo)) {
             throw new Error("Você não pode realizar essa ação!");
         }
@@ -13,8 +15,9 @@ export class serviceGrupoAcademico{
         
         return grupo;
     }
+    
     async getByNome(nomeGrupo: string, user : Usuario){
-        const buscarGrupo = new Acoes("BUSCAR_GRUPO", "001")
+        const buscarGrupo = new Acao("BUSCAR_GRUPO", "001")
         if (!user.getPerfil().podeExecutar(buscarGrupo)) {
             throw new Error("Você não pode realizar essa ação!");
         }
@@ -24,7 +27,7 @@ export class serviceGrupoAcademico{
     }
 
     async getParticipantes(idGrupo: string, user : Usuario){
-        const buscarParticipantes = new Acoes("BUSCAR_PARTICIPANTES", "002")
+        const buscarParticipantes = new Acao("BUSCAR_PARTICIPANTES", "002")
         if (!user.getPerfil().podeExecutar(buscarParticipantes)) {
             throw new Error("Você não pode realizar essa ação!");
         }
@@ -34,7 +37,7 @@ export class serviceGrupoAcademico{
     }
 
     async getResponsavel(idGrupo: string, user : Usuario){
-        const buscarResponsavel = new Acoes("BUSCAR_RESPONSAVEL", "003")
+        const buscarResponsavel = new Acao("BUSCAR_RESPONSAVEL", "003")
         if (!user.getPerfil().podeExecutar(buscarResponsavel)) {
             throw new Error("Você não pode realizar essa ação!");
         }
@@ -44,7 +47,7 @@ export class serviceGrupoAcademico{
     }
 
     async getEventosOrganizados(idGrupo: string, user : Usuario){
-        const buscarEventos = new Acoes("BUSCAR_EVENTOS", "004")
+        const buscarEventos = new Acao("BUSCAR_EVENTOS", "004")
         if (!user.getPerfil().podeExecutar(buscarEventos)) {
             throw new Error("Você não pode realizar essa ação!");
         }
@@ -54,7 +57,7 @@ export class serviceGrupoAcademico{
     }
 
     async getEventosParticipados(idGrupo: string, user : Usuario){
-        const buscarEventos = new Acoes("BUSCAR_EVENTOS", "004")
+        const buscarEventos = new Acao("BUSCAR_EVENTOS", "004")
         if (!user.getPerfil().podeExecutar(buscarEventos)) {
             throw new Error("Você não pode realizar essa ação!");
         }
@@ -64,7 +67,7 @@ export class serviceGrupoAcademico{
     }
 
     async getMembrosAtivos(idGrupo: string, user : Usuario){
-        const buscarMembros = new Acoes("BUSCAR_MEMBROS_ATIVOS", "005")
+        const buscarMembros = new Acao("BUSCAR_MEMBROS_ATIVOS", "005")
         if (!user.getPerfil().podeExecutar(buscarMembros)) {
             throw new Error("Você não pode realizar essa ação!");
         }

@@ -37,6 +37,10 @@ export class ProcessoSeletivo{
         return this.nroAprovados;
     }
 
+    public getEtapas(){
+        return this.etapas;
+    }
+
     public setID(id: string){
         this.id = id;
     }
@@ -65,6 +69,4 @@ export class ProcessoSeletivo{
         const index = this.etapas.indexOf(etapa);
         this.etapas.splice(index, 1);
     }
-    
-    public verificaAluno(aluno: Aluno){}
 }

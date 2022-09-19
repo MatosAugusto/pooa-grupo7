@@ -14,11 +14,11 @@ class controllerResponsavel{
         await this.serviceResponsavel.trocarResponsavel(grupo, novoResponsavel);
     }
     
-    removerParticipante(participante: Usuario){
-
+    async removerParticipante(grupo: GrupoAcademico, participante: Aluno){
+        await this.serviceResponsavel.removerParticipante(grupo, participante)
     }
     
-    mudarStatusGrupoAcademico(grupo: GrupoAcademico){
-
+    async mudarStatusGrupoAcademico(grupo: GrupoAcademico){
+        await this.serviceResponsavel.mudarStatusGrupoAcademico(grupo)
     }
 }

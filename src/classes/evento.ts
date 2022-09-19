@@ -7,6 +7,7 @@ import { Local } from "./local"
 export class Evento{
     private nome: string;
     private data: Date;
+    private status: string = "A_ACONTECER";
     private horaInicio: Date;
     private horaFim: Date;
     private organizadores: Aluno[];
@@ -14,9 +15,10 @@ export class Evento{
     private palestrantes: Usuario[];
     private gruposResponsaveis: GrupoAcademico[];
     
-    constructor(nome: string, data: string, horaInicio: number, horaFim: number, organizadores: Aluno[], local: Local, palestrantes: Usuario[], grupoResponsavel: GrupoAcademico[]){
+    constructor(nome: string, data: string, status: string, horaInicio: number, horaFim: number, organizadores: Aluno[], local: Local, palestrantes: Usuario[], grupoResponsavel: GrupoAcademico[]){
         this.nome = nome; 
         this.data = new Date(data);
+        this.status = status;
         this.horaInicio = this.data;
         this.horaFim = this.data;
         this.horaInicio.setHours(horaInicio);
@@ -33,6 +35,10 @@ export class Evento{
     
     public getData(){
         return this.data;
+    }
+
+    public getStatus(){
+        return this.status;
     }
     
     public getHoraInicio(){

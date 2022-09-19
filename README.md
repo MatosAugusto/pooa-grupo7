@@ -8,20 +8,26 @@ Assim como descrito no documento de requisitos fornecido, o sistema de gerenciam
 
 O documento de requisitos original foi fornecido apenas para os alunos da disciplinas. Então, foi criado um resumo que você poderá encontrar em /docs.
 
-## Detalhes 
+## Detalhes Técnicos
 
 ### Linguagem 
 
-* Typescript
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) 
 
 ### Banco de Dados 
 
-* SQL
+![mySQL](https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white) 
 
 ### API
 
-* Node.js
-* Express
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) 
+![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) 
+  
+### Arquitetura
+Utilizamos um conceito similar ao de "Clean Architecture", o sistema possui camadas para facilitar a manuntenção futura. Da mais interna para a mais externa: *Classe*, *Service* e *Controller*
+
+Outra peculiaridade do nosso sistema é a utilização do conceito de *Profille* e *Action*. Todo usuário possui um perfil, ou seja, possui uma categoria q permite (ou não) ele realizar certas ações.
+
 
 ## Autores
 
@@ -39,7 +45,14 @@ Matheus Silva
 * 0.1
     * Esqueleto das classes que vão ser utilizadas e seus relacionamentos.
 * 0.2
-    * Criação de um Banco de Dados e um esqueleto da API. Além da estrtuturação quase completa das classes.
+    * Criação de um Banco de Dados
+    * Esqueleto da API 
+    * Estruturação quase completa das classes.
+* 0.3
+    * Finalização do Banco de Dados
+    * Estruturação quase completa da API
+    * Criação quase completa da integração CLASSE -> CONTROLLER -> SERVICE -> REPOSITORY
+
  
  ## Links Externos
  * [Documento de Requisitos](https://github.com/MatosAugusto/pooa-grupo7/blob/main/docs/Requisitos.md)

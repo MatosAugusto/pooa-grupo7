@@ -31,6 +31,7 @@ export class repositoryProcessoSeletivo {
       }
       return processos;
     }
+
     getById(id: bigint){
       const query = `SELECT * FROM ProcessoSeletivo WHERE idProcesso = ${id}`;
       const resultSet: any = this.connection.execute(query);
@@ -44,10 +45,12 @@ export class repositoryProcessoSeletivo {
       const ps = new ProcessoSeletivo(resultSet.data, resultSet.nroInscritos, resultSet.nroVagas, resultSet.nroAprovados,etapas);
       return ps;
     }
+
     delete(id: bigint) {
       const query = `DELETE FROM ProcessoSeletivo WHERE idProcesso = ${id}`;
     }
+
     update(ps: ProcessoSeletivo){
-      const query = `update ProcessoSeletivo set dataProcesso = ${ps.getData()}, nroInscritos = ${ps.getNroInscritos}, nroVagas = ${ps.getNroVagas}, nroAprovados = ${ps.getNroAprovados} where idProcesso = ${ps.getId()}`;
+      const query = `update ProcessoSeletivo set dataProcesso = ${ps.getData()}, nroInscritos = ${ps.getNroInscritos}, nroVagas = ${ps.getNroVagas}, nroAprovados = ${ps.getNroAprovados} where idProcesso = ${ps.getID()}`;
     }
   }

@@ -20,7 +20,7 @@ export class repositoryEtapa {
         const query2 = `select * from EtapaAluno where etapa = ${resultSet.idEtapa}`;
         const resultSet2: any = this.connection.execute(query2);
         while(resultSet2){
-          aluno = a.getById(resultSet2.raAluno)
+          aluno = a.getByID(resultSet2.raAluno)
           alunos.push(aluno);
         }
         let etapa: any = new Etapa(resultSet.idEtapa, resultSet.nome, resultSet.descricao, alunos);
@@ -38,7 +38,7 @@ export class repositoryEtapa {
       const query2 = `select * from EtapaAluno where etapa = ${resultSet.idEtapa}`;
       const resultSet2: any = this.connection.execute(query2);
       while(resultSet2){
-        aluno = a.getById(resultSet2.raAluno)
+        aluno = a.getByID(resultSet2.raAluno)
         alunos.push(aluno);
       }
 
@@ -52,11 +52,13 @@ export class repositoryEtapa {
         const query =  `insert into EtapaAluno (idEtapa, raAluno) values (${etapa.getNome()}, ${aluno.getRA()})`;
      }
     }
+
     delete(etapa: Etapa) {
-      const id = etapa.getId();
+      const id = etapa.getID();
       const query = `delete from Etapa where idEtapa = ${id}`;
     }
+
     update(etapa: Etapa){
-      const query = `update Etapa set nome = ${etapa.getNome()}, ${etapa.getDescricao} where idEtapa = ${etapa.getId()}`;
+      const query = `update Etapa set nome = ${etapa.getNome()}, ${etapa.getDescricao} where idEtapa = ${etapa.getID()}`;
     }
   }

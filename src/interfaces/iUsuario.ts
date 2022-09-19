@@ -1,6 +1,6 @@
 import { Perfil } from "../classes/perfil";
 import { Usuario } from "../classes/usuario";
-import { usuarioService } from "../services/usuarioService";
+import { serviceUsuario } from "../services/serviceUsuario";
 
 interface iUsuario{
     (nome: string, cpf: string, dataNascimento: Date, senha : string, perfil :Perfil): void;
@@ -8,6 +8,6 @@ interface iUsuario{
     
     const adiciona: iUsuario = (nome, cpf, dataNascimento, senha, perfil) =>{
         const user = new Usuario(nome,cpf,dataNascimento,senha,perfil);
-        const s = new usuarioService();
+        const s = new serviceUsuario();
         s.adicionarUsuario(user);
     }

@@ -22,8 +22,8 @@ export class repositoryEvento {
         const query3 =  `insert into Palestrantes (nomeEvento, cpfUsuario) values (${evento.getNome}, ${evento.getPalestrantes[i].getCpf()} )`;
       }
       i = 0;
-      while(i<evento.getGrupoResponsavel.length){
-        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${evento.getNome}, ${evento.getGrupoResponsavel[i].getId()}, 'ORGANIZADOR' )`;
+      while(i<evento.getGruposResponsaveis.length){
+        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${evento.getNome}, ${evento.getGruposResponsaveis[i].getId()}, 'ORGANIZADOR' )`;
       }
     }
     getAll(){
@@ -36,7 +36,7 @@ export class repositoryEvento {
         let a = new repositoryAluno;
         let organizadores : Aluno[] = [];
         while(resultSet2){
-          organizadores.push(a.getById(resultSet2.raAluno));
+          organizadores.push(a.getByID(resultSet2.raAluno));
         }
         const query3 = `select * from LocalEvento where cepLocal = ${resultSet.cepLocal}`;
         const resultSet3: any = this.connection.execute(query3);
@@ -56,7 +56,7 @@ export class repositoryEvento {
         while(resultSet5){
           grupos.push(g.getById(resultSet5.idGrupo));
         }
-        const evento = new Evento(resultSet.nome, resultSet.data, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
+        const evento = new Evento(resultSet.nome, resultSet.data, resultSet.status, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
         eventos.push(evento);
       }
       return eventos;
@@ -69,7 +69,7 @@ export class repositoryEvento {
       let a = new repositoryAluno;
       let organizadores : Aluno[] = [];
       while(resultSet2){
-        organizadores.push(a.getById(resultSet2.raAluno));
+        organizadores.push(a.getByID(resultSet2.raAluno));
       }
       const query3 = `select * from LocalEvento where cepLocal = ${resultSet.cepLocal}`;
       const resultSet3: any = this.connection.execute(query3);
@@ -89,30 +89,30 @@ export class repositoryEvento {
       while(resultSet5){
         grupos.push(g.getById(resultSet5.idGrupo));
       }
-      const evento = new Evento(resultSet.nome, resultSet.data, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
+      const evento = new Evento(resultSet.nome, resultSet.data, resultSet.status, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
       return evento;
     }
     delete(evento: Evento) {
       const nome = evento.getNome();
       const query = `delete from Evento where nome = ${nome}`;
     }
-    update(evento : Evento){
+    update(evento: Evento){
       const query = `update Evento set dataCriacao = ${evento.getData}, horaInicio = ${evento.getHoraInicio()}, horaFim = ${evento.getHoraFim}, cepLocal = ${evento.getLocal().getCep} where nome = ${evento.getNome()}`;
     }
 
-    insertPalestrante(usuario : Usuario, evento : Evento){
+    insertPalestrante(usuario: Usuario, evento: Evento){
       const query = `insert into Palestrantes (nomeEvento, cpfUsuario) values (${evento.getNome}, ${usuario.getNome})`;
     }
 
-    insertOrganizador(aluno : Aluno, evento : Evento){
+    insertOrganizador(aluno: Aluno, evento: Evento){
       const query = `insert into Organizadores (nomeEvento, raAluno) values (${evento.getNome}, ${aluno.getRA})`;
     }
 
-    alterarLocal(local : Local, evento : Evento){
+    alterarLocal(local: Local, evento: Evento){
       const query = `update Evento set cepLocal = ${local.getCep} where nome = ${evento.getNome()}`;
     }
 
-    alterarData(data : Date, evento : Evento){
+    alterarData(data: Date, evento: Evento){
       const query = `update Evento set dataCriacao = ${data} where nome = ${evento.getNome()}`;
     }
   }

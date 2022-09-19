@@ -1,6 +1,7 @@
-import { serviceAluno } from "../services/serviceAluno"
 import { Aluno } from "../classes/aluno"
 import { ProcessoSeletivo } from "../classes/processoseletivo"
+import { serviceAluno } from "../services/serviceAluno"
+
 class controllerAluno{
     private serviceAluno = new serviceAluno();
 

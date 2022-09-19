@@ -17,7 +17,7 @@ export class repositoryDepartamento {
       }
       return departamentos;
     }
-    getById(id: string){
+    getByID(id: string){
       const query = `select * from Departamento where idDepartamento = ${id}`;
       const resultSet: any = this.connection.execute(query);
 
