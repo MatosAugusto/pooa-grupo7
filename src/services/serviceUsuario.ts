@@ -17,4 +17,26 @@ export class serviceUsuario{
         
         this.repositoryUsuario.insert(usuario);
     }
+
+    async buscarUsuarios(){
+        return this.repositoryUsuario.getAll();
+    }
+
+    async buscarUsuarioPorCPF(cpf: string){
+        return this.repositoryUsuario.getByCpf(cpf);
+    }
+
+    async deletarUsuario(usuario: Usuario){
+        if(!this.repositoryUsuario.getByCpf(usuario.getCpf())){
+            throw new Error("Usuario não encontrado!");            
+        }
+        this.repositoryUsuario.delete(usuario);
+    }
+
+    async mudarUsuario(usuario: Usuario){
+        if(!this.repositoryUsuario.getByCpf(usuario.getCpf())){
+            throw new Error("Usuario não encontrado!");            
+        }
+        this.repositoryUsuario.update(usuario);
+    }
 }

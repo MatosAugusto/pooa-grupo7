@@ -8,6 +8,9 @@ export class serviceGrupoAcademico{
     private repositoryGrupoAcad = new repositoryGrupoAcademico();
 
     async criarGrupo(grupo: GrupoAcademico){
+        if(this.repositoryGrupoAcad.getById(grupo.getID())){
+            throw new Error("Grupo já cadastrado!");            
+        }
         this.repositoryGrupoAcad.insert(grupo);
     }
 
