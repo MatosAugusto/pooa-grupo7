@@ -153,8 +153,10 @@ create table Evento(
     horaInicio varchar(20) not null,
     horaFim varchar(20) not null,
     cepLocal varchar(8) not null,
+    statusEvento varchar(12) not null,
     primary key(nome),
-    foreign key (cepLocal) references LocalEvento(cep)
+    foreign key (cepLocal) references LocalEvento(cep),
+    CONSTRAINT status_check CHECK (statusEvento IN('A_ACONTECER', 'ACONTECENDO', 'CANCELADO'))
 );
 
 create table Organizadores(

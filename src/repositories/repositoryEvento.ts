@@ -12,7 +12,7 @@ export class repositoryEvento {
     private connection = { execute(query: string) {} };
 
     insert(evento: Evento){
-      const query = `insert into evento (nome, dataCriacao, statusEvento, horaInicio, horaFim, cepLocal) values (${evento.getNome()}, ${evento.getData()}, ${evento.getStatus()}, ${evento.getHoraInicio()}, ${evento.getHoraFim()}, ${evento.getLocal().getCep()} )`;
+      const query = `insert into evento (nome, dataCriacao, statusEvento, horaInicio, horaFim, cepLocal, statusEvento) values (${evento.getNome()}, ${evento.getData()}, ${evento.getStatus()}, ${evento.getHoraInicio()}, ${evento.getHoraFim()}, ${evento.getLocal().getCep()}, 'A_ACONTECER' )`;
       let i : number = 0;
       
       while(i<evento.getOrganizadores().length){
