@@ -18,6 +18,7 @@ export class repositoryProfessor {
       const d = new repositoryDepartamento;
       const u = new repositoryUsuario;
       const professores : Professor[] =[];
+      
       while(resultSet){
         let usuario : Usuario = u.getByCpf(resultSet.cpf);
         let professor = new Professor(resultSet.nroUniversidade, d.getByID(resultSet.idDepartamento), resultSet.statusBiblioteca, usuario.getNome(), resultSet.cpf, usuario.getDataNascimento(), usuario.getSenha(), usuario.getPerfil());

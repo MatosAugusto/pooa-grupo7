@@ -26,11 +26,12 @@ export class repositoryAluno {
       const resultSet: any = this.connection.execute(query);
       let d = new repositoryDisciplina;
       let u = new repositoryUsuario;
+      
       while(resultSet){
         let query2 = `select * from AlunoDisciplinas where raAluno = ${resultSet.ra}`;
         let resultSet2: any = this.connection.execute(query2);
         while(resultSet2){
-          disciplina = d.getById(resultSet2.idDisciplina);
+          disciplina = d.getByID(resultSet2.idDisciplina);
           disciplinas.push(disciplina);
         }
         let usuario: Usuario = u.getByCpf(resultSet.cpf);
@@ -50,8 +51,9 @@ export class repositoryAluno {
       const resultSet: any = this.connection.execute(query);
       let query2 = `select * from AlunoDisciplinas where raAluno = ${resultSet.ra}`;
       let resultSet2: any = this.connection.execute(query2);
+      
       while(resultSet2){
-        disciplina = d.getById(resultSet2.idDisciplina);
+        disciplina = d.getByID(resultSet2.idDisciplina);
         disciplinas.push(disciplina);
       }
       let u = new repositoryUsuario;

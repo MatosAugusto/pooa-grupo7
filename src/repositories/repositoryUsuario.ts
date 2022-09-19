@@ -5,10 +5,12 @@ export class repositoryUsuario {
     insert(usuario: Usuario){
       const query = `insert into usuario (nome, cpf, dataNascimento, senha, perfil) values (${usuario.getNome()},${usuario.getCpf()},${usuario.getDataNascimento()},${usuario.getSenha()},${usuario.getPerfil()})`;
     }
+    
     getAll(){
       let usuarios: Array<Usuario> =[];
       const query = `select * from usuario`;
       const resultSet: any = this.connection.execute(query);
+      
       while(resultSet){
         let usuario: any = new Usuario(resultSet.nome, resultSet.cpf,resultSet.dataNascimento, resultSet.senha,resultSet.perfil);
 
@@ -16,11 +18,10 @@ export class repositoryUsuario {
       }
       return usuarios;
     }
+    
     getByCpf(cpf: string): Usuario {
       const query = `select * from usuario where cpf = ${cpf}`;
       const resultSet: any = this.connection.execute(query);
-       
-      
       const usuario: any = new Usuario(resultSet.nome, resultSet.cpf,resultSet.dataNascimento, resultSet.senha,resultSet.perfil);
 
       return usuario;

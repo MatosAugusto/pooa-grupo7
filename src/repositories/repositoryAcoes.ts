@@ -3,7 +3,7 @@ import { Acao } from '../classes/acao'
 export class repositoryAcoes {
     private connection = { execute(query: string) {} };
 
-    insert(acao : Acao){
+    insert(acao: Acao){
       const query = `insert into acoes (nome, codigo) values (${acao.getNome()},${acao.getCodigo()} )`;
     }
 

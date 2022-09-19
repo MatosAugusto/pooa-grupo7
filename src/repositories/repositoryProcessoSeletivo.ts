@@ -18,6 +18,7 @@ export class repositoryProcessoSeletivo {
       const query = 'SELECT * FROM ProcessoSeletivo';
       const resultSet: any = this.connection.execute(query);
       const processos : ProcessoSeletivo[] = [];
+      
       while (resultSet){
         const query2 = `SELECT * FROM EtapaProcesso WHERE processo = ${resultSet.id}`;
         const resultSet2: any = this.connection.execute(query2);
@@ -39,6 +40,7 @@ export class repositoryProcessoSeletivo {
       const resultSet2: any = this.connection.execute(query2);
       let etapas : Etapa[] = [];
       let e = new repositoryEtapa;
+      
       while(resultSet2){
         etapas.push(e.getById(resultSet2.etapa));
       }

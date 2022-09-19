@@ -12,8 +12,9 @@ export class repositoryEvento {
     private connection = { execute(query: string) {} };
 
     insert(evento: Evento){
-      const query = `insert into evento (nome, dataCriacao, horaInicio, horaFim, cepLocal) values (${evento.getNome()}, ${evento.getData()}, ${evento.getHoraInicio()}, ${evento.getHoraFim()}, ${evento.getLocal().getCep()} )`;
+      const query = `insert into evento (nome, dataCriacao, status, horaInicio, horaFim, cepLocal) values (${evento.getNome()}, ${evento.getData()}, ${evento.getStatus()}, ${evento.getHoraInicio()}, ${evento.getHoraFim()}, ${evento.getLocal().getCep()} )`;
       let i : number = 0;
+      
       while(i<evento.getOrganizadores().length){
         const query2 =  `insert into Organizadores (nomeEvento, raAluno) values (${evento.getNome}, ${evento.getOrganizadores[i].getRA()} )`;
       }
@@ -26,15 +27,18 @@ export class repositoryEvento {
         const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${evento.getNome}, ${evento.getGruposResponsaveis[i].getId()}, 'ORGANIZADOR' )`;
       }
     }
+    
     getAll(){
       const eventos : Evento[] = [];
       const query = `select * from Evento`;
       const resultSet: any = this.connection.execute(query);
+      
       while(resultSet){
         const query2 = `select * from Organizadores where nomeEvento = ${resultSet.nome}`;
         const resultSet2: any = this.connection.execute(query2);
         let a = new repositoryAluno;
         let organizadores : Aluno[] = [];
+        
         while(resultSet2){
           organizadores.push(a.getByID(resultSet2.raAluno));
         }
@@ -46,6 +50,7 @@ export class repositoryEvento {
         const resultSet4: any = this.connection.execute(query4);
         let u = new repositoryUsuario;
         let palestrantes : Usuario[] = [];
+        
         while(resultSet4){
           palestrantes.push(u.getByCpf(resultSet4.cpfUsuario));
         }
@@ -53,6 +58,7 @@ export class repositoryEvento {
         const resultSet5: any = this.connection.execute(query5);
         let g = new repositoryGrupoAcademico;
         let grupos : GrupoAcademico[] = [];
+        
         while(resultSet5){
           grupos.push(g.getById(resultSet5.idGrupo));
         }
@@ -61,6 +67,7 @@ export class repositoryEvento {
       }
       return eventos;
     }
+    
     getByNome(nome: string){
       const query = `select * from Evento where nome = ${nome}`;
       const resultSet: any = this.connection.execute(query);
@@ -68,6 +75,7 @@ export class repositoryEvento {
       const resultSet2: any = this.connection.execute(query2);
       let a = new repositoryAluno;
       let organizadores : Aluno[] = [];
+      
       while(resultSet2){
         organizadores.push(a.getByID(resultSet2.raAluno));
       }
@@ -79,6 +87,7 @@ export class repositoryEvento {
       const resultSet4: any = this.connection.execute(query4);
       let u = new repositoryUsuario;
       let palestrantes : Usuario[] = [];
+      
       while(resultSet4){
         palestrantes.push(u.getByCpf(resultSet4.cpfUsuario));
       }
@@ -86,18 +95,21 @@ export class repositoryEvento {
       const resultSet5: any = this.connection.execute(query5);
       let g = new repositoryGrupoAcademico;
       let grupos : GrupoAcademico[] = [];
+      
       while(resultSet5){
         grupos.push(g.getById(resultSet5.idGrupo));
       }
       const evento = new Evento(resultSet.nome, resultSet.data, resultSet.status, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
       return evento;
     }
+    
     delete(evento: Evento) {
       const nome = evento.getNome();
       const query = `delete from Evento where nome = ${nome}`;
     }
+    
     update(evento: Evento){
-      const query = `update Evento set dataCriacao = ${evento.getData}, horaInicio = ${evento.getHoraInicio()}, horaFim = ${evento.getHoraFim}, cepLocal = ${evento.getLocal().getCep} where nome = ${evento.getNome()}`;
+      const query = `update Evento set nome = ${evento.getNome}, status = ${evento.getStatus}, dataCriacao = ${evento.getData}, horaInicio = ${evento.getHoraInicio()}, horaFim = ${evento.getHoraFim}, cepLocal = ${evento.getLocal().getCep} where nome = ${evento.getNome()}`;
     }
 
     insertPalestrante(usuario: Usuario, evento: Evento){
@@ -114,5 +126,9 @@ export class repositoryEvento {
 
     alterarData(data: Date, evento: Evento){
       const query = `update Evento set dataCriacao = ${data} where nome = ${evento.getNome()}`;
+    }
+
+    alterarStatus(status: string, evento: Evento){
+      const query = `update Evento set status = ${status} where nome = ${evento.getNome()}`;
     }
   }

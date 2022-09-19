@@ -12,19 +12,19 @@ export class serviceAluno{
     private psRepository = new repositoryProcessoSeletivo();
     
     async inscreverNoPS(aluno: Aluno, ps: ProcessoSeletivo){
-        if(await !this.alunoRepository.getByID(aluno.getRA())){
+        if(!this.alunoRepository.getByID(aluno.getRA())){
             throw new Error("Aluno não encontrado!");
         }
 
-        if(await !this.perfilRepository.getByName(aluno.getPerfil().getNome())){
+        if(!this.perfilRepository.getByName(aluno.getPerfil().getNome())){
             throw new Error("Perfil não encontrado!"); 
         }
 
-        if(await this.psService.checarAluno(aluno)){
+        if(!this.psService.checarAluno(aluno)){
+            throw new Error("Aluno não está cumprindo os requisitos!");
+        }else{
             this.psRepository.insertAluno(aluno, ps);
             ps.getEtapas()[0].insertParticipante(aluno)
-        }else{
-            throw new Error("Aluno não está cumprindo os requisitos!");
         }
     }
 }

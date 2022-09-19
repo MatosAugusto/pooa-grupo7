@@ -1,7 +1,7 @@
-import { serviceResponsavel } from "../services/serviceResponsavel";
 import { GrupoAcademico } from "../classes/grupoacademico";
 import { Usuario } from "../classes/usuario";
 import { Aluno } from "../classes/aluno";
+import { serviceResponsavel } from "../services/serviceResponsavel";
 
 class controllerResponsavel{
     private serviceResponsavel = new serviceResponsavel();

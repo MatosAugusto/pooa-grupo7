@@ -1,8 +1,8 @@
 import { Aluno } from "../classes/aluno";
 import { Evento } from "../classes/evento";
 import { Usuario } from "../classes/usuario";
-import { repositoryEvento } from "../repositories/repositoryEvento";
 import { Local } from "../classes/local";
+import { repositoryEvento } from "../repositories/repositoryEvento";
 
 export class serviceEvento{
     private eventoRepository = new repositoryEvento();

@@ -1,4 +1,3 @@
-import { Aluno } from "./aluno"
 import { Etapa } from "./etapa"
 
 export class ProcessoSeletivo{
