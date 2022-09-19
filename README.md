@@ -30,9 +30,9 @@ A *classe* é a entidade. Ou seja, os objetos que vão ser tratados. Ao todo sã
 
 O *repository* é responsável pela manipulação do banco de dados. Ao todo são 12 repositories, que podem ser encontrados em  `./src/repositories`
 
-O *service* é responsável por toda implementação e lógica de cada ação que pode ser tomada no sistema. Serve também como conexão entre o *Controller* e o *Repository*. Ao todo são 6 services, que podem ser encontrados em `./src/services`
+O *service* é responsável por toda implementação e lógica de cada ação que pode ser tomada no sistema. Serve também como conexão entre o *Controller* e o *Repository*. Ao todo são 7 services, que podem ser encontrados em `./src/services`
 
-Para finalizar, o *controller* é responsável pela chamada do método. Ou seja, através da *View* ele é chamado e chama o service. De forma a criar mais uma camada de proteção e facilitar qualquer manuntenção futura. Ao todo são 5 controllers, que podem ser encontrados em `./src/controllers`
+Para finalizar, o *controller* é responsável pela chamada do método. Ou seja, através da *View* ele é chamado e chama o service. De forma a criar mais uma camada de proteção e facilitar qualquer manuntenção futura. Ao todo são 6 controllers, que podem ser encontrados em `./src/controllers`
 
 Outra peculiaridade do nosso sistema é a utilização do conceito de **_Profille_** e **_Action_**. Todo usuário possui um perfil, ou seja, possui uma categoria q permite (ou não) ele realizar certas ações.
 
