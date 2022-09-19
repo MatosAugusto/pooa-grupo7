@@ -79,6 +79,9 @@ export class serviceResponsavel{
     }
 
     async mudarStatusGrupoAcademico(grupo: GrupoAcademico){
+        if(!this.repositoryGrupoAcademico.getById(grupo.getID())){
+            throw new Error("Grupo não encontrado!");
+        }
         grupo.changeStatus()
         this.repositoryGrupoAcademico.update(grupo)
     }
