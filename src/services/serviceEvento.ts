@@ -42,7 +42,7 @@ export class serviceEvento{
         if(!this.alunoRepository.getByID(aluno.getRA())){
             throw new Error("Aluno não encontrado!");
         }
-        if(!checkStatusAluno(aluno.getRA())){
+        if(!checkStatusAluno(aluno)){
             throw new Error("Aluno não está cumprindo os requisitos!");
         }
         this.eventoRepository.insertOrganizador(aluno, evento);

@@ -3,3 +3,6 @@ import { Usuario } from './classes/usuario'
 
 const resourcesListaAluno = new Acao("ACESSO_SISTEMA", "001");
 
+class main{
+    
+}

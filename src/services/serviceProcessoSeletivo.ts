@@ -11,7 +11,7 @@ export class serviceProcessoSeletivo{
             throw new Error("Usuario não cadastrado!");           
         }
         
-        if(!checkStatusAluno(aluno.getRA())){
+        if(!checkStatusAluno(aluno)){
             throw new Error("Aluno não está cumprindo os requisitos!"); 
         }    
         return true;
