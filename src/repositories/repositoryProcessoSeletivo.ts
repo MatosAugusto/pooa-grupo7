@@ -9,9 +9,8 @@ export class repositoryProcessoSeletivo {
     insert(processo: ProcessoSeletivo){
       const query = `insert into ProcessoSeletivo (dataProcesso, nroInscritos, nroVagas, nroAprovados) values (${processo.getData()}, ${processo.getNroInscritos()}, ${processo.getNroVagas()}, ${processo.getNroAprovados()} )`;
     }
-    insertAluno(aluno: Aluno, ps : ProcessoSeletivo){
-      //const query = `insert into EtapaAluno (etapa, raAluno) values (${ps.getEtapaAtual()}, ${aluno.getRA()})`;
-      // adicionar em qual etapa o aluno está na classe do PS
+    insertAluno(aluno: Aluno, ps : ProcessoSeletivo, nroEtapa: number){
+      const query = `insert into EtapaAluno (etapa, raAluno) values (${ps.getEtapaAtual()}, ${aluno.getRA()})`;
     }
       
     getAll(){

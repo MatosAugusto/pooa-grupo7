@@ -88,6 +88,7 @@ create table ProcessoSeletivo(
     nroInscritos int,
     nroVagas int,
     nroAprovados int,
+    etapaAtual int,
     primary key(idProcesso) 
 );
 

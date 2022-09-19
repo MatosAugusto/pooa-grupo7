@@ -7,6 +7,7 @@ export class ProcessoSeletivo{
     private nroVagas: number;
     private nroAprovados: number;
     private etapas: Etapa[];
+    private etapaAtual : number;
     
     constructor(data: string, nroInscritos: number, nroVagas: number, nroAprovados: number, etapas: Etapa[]){
         this.data = new Date(data);
@@ -14,6 +15,7 @@ export class ProcessoSeletivo{
         this.nroVagas = nroVagas;
         this.nroAprovados = nroAprovados;
         this.etapas = etapas;
+        this.etapaAtual = 0;
     }
     
     public getID(){
@@ -38,6 +40,10 @@ export class ProcessoSeletivo{
 
     public getEtapas(){
         return this.etapas;
+    }
+
+    public getEtapaAtual(){
+        return this.etapaAtual;
     }
 
     public setID(id: string){

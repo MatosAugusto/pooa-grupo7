@@ -55,7 +55,7 @@ export class serviceAluno{
             throw new Error("Aluno não está cumprindo os requisitos!");
         }
 
-        this.psRepository.insertAluno(aluno, ps);
+        this.psRepository.insertAluno(aluno, ps, 0);
         ps.getEtapas()[0].insertParticipante(aluno)
         
     }
