@@ -13,6 +13,22 @@ export class serviceEvento{
     private usuarioRepository = new repositoryUsuario();
     private alunoRepository = new repositoryAluno();
     private localRepository = new repositoryLocal();
+    
+    async criarEvento(evento: Evento){
+        await this.eventoRepository.insert(evento);
+    }
+
+    async deletarEvento(evento: Evento){
+        await this.eventoRepository.delete(evento);
+    }
+
+    async buscarEventos(){
+        return await this.eventoRepository.getAll();
+    }
+
+    async buscarEventoPorNome(nome: string){
+        return await this.eventoRepository.getByNome(nome);
+    }
 
     async adicionarPalestrante(usuario: Usuario, evento: Evento){
         if(!this.usuarioRepository.getByCpf(usuario.getCpf())){

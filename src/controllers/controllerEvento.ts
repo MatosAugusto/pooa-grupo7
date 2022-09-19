@@ -6,6 +6,22 @@ import { serviceEvento } from "../services/serviceEvento"
 
 class controllerEvento{
     private serviceEvento = new serviceEvento();
+
+    async criarEvento(evento: Evento){
+        await this.serviceEvento.criarEvento(evento);
+    }
+
+    async deletarEvento(evento: Evento){
+        await this.serviceEvento.deletarEvento(evento);
+    }
+
+    async buscarEventos(){
+        await this.serviceEvento.buscarEventos();
+    }
+
+    async buscarEventoPorNome(nome: string){
+        await this.serviceEvento.buscarEventoPorNome(nome);
+    }
     
     adicionarPalestrante(usuario: Usuario, evento: Evento) {
         this.serviceEvento.adicionarPalestrante(usuario, evento);

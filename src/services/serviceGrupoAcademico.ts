@@ -5,7 +5,7 @@ import { repositoryGrupoAcademico } from "../repositories/repositoryGrupoAcademi
 
 export class serviceGrupoAcademico{
     private repositoryGrupoAcad = new repositoryGrupoAcademico();
-    
+
     async getByID(idGrupo: string, user : Usuario){
         const buscarGrupo = new Acao("BUSCAR_GRUPO", "001")
         if (!user.getPerfil().podeExecutar(buscarGrupo)) {

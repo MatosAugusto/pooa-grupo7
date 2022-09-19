@@ -1,9 +1,10 @@
+import { Evento } from "../classes/evento";
 import { Usuario } from "../classes/usuario";
 import { serviceGrupoAcademico } from "../services/serviceGrupoAcademico";
 
 class controllerGrupoAcademico{
     private serviceGrupoAcademico = new serviceGrupoAcademico(); 
-    
+
     async getGrupoAcademicoByID(idGrupo: string, user : Usuario){
         await this.serviceGrupoAcademico.getByID(idGrupo, user);
     }
