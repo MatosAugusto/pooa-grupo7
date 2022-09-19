@@ -21,11 +21,11 @@ export class serviceAluno{
     }
 
     async buscarAlunos(){
-        return await this.alunoRepository.getAll();
+        return this.alunoRepository.getAll();
     }
 
     async buscarAlunoPorRA(ra: string){
-        return await this.alunoRepository.getByID(ra);
+        return this.alunoRepository.getByID(ra);
     }
 
     async deletarAluno(aluno: Aluno){

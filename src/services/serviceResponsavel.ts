@@ -85,4 +85,11 @@ export class serviceResponsavel{
         grupo.changeStatus()
         this.repositoryGrupoAcademico.update(grupo)
     }
+
+    async checkResponsavel(responsavel:Usuario){
+        if(responsavel.getPerfil().getNome()!="EM_DIA"){
+            return false;
+        }
+        return true;
+    }
 }

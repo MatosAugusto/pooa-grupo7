@@ -2,9 +2,22 @@ import { GrupoAcademico } from "../classes/grupoacademico";
 import { Usuario } from "../classes/usuario";
 import { Aluno } from "../classes/aluno";
 import { serviceResponsavel } from "../services/serviceResponsavel";
+import { serviceGrupoAcademico } from "../services/serviceGrupoAcademico";
 
 class controllerResponsavel{
     private serviceResponsavel = new serviceResponsavel();
+    private serviceGA = new serviceGrupoAcademico();
+
+    async criarGrupo(grupo: GrupoAcademico, responsavel: Usuario){
+        if(!this.serviceResponsavel.checkResponsavel(responsavel)){
+            throw new Error("Responsável inválido!");
+        }
+        await this.serviceGA.criarGrupo(grupo);
+    }
+
+    async deletarGrupo(grupo: GrupoAcademico){
+        await this.serviceGA.deletarGrupo(grupo);
+    }
     
     async incluirParticipante(grupo: GrupoAcademico, participante: Aluno){
         await this.serviceResponsavel.incluirParticipante(grupo, participante)

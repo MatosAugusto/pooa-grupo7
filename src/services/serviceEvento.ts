@@ -23,11 +23,11 @@ export class serviceEvento{
     }
 
     async buscarEventos(){
-        return await this.eventoRepository.getAll();
+        return this.eventoRepository.getAll();
     }
 
     async buscarEventoPorNome(nome: string){
-        return await this.eventoRepository.getByNome(nome);
+        return this.eventoRepository.getByNome(nome);
     }
 
     async adicionarPalestrante(usuario: Usuario, evento: Evento){

@@ -1,10 +1,23 @@
 import { Usuario } from "../classes/usuario";
 import { Perfil } from "../classes/perfil";
 import { Acao } from "../classes/acao";
+import { GrupoAcademico } from "../classes/grupoacademico";
 import { repositoryGrupoAcademico } from "../repositories/repositoryGrupoAcademico";
 
 export class serviceGrupoAcademico{
     private repositoryGrupoAcad = new repositoryGrupoAcademico();
+
+    async criarGrupo(grupo: GrupoAcademico){
+        this.repositoryGrupoAcad.insert(grupo);
+    }
+
+    async deletarGrupo(grupo: GrupoAcademico){
+        this.repositoryGrupoAcad.delete(grupo);
+    }
+
+    async buscarGrupos(){
+        return this.repositoryGrupoAcad.getAll();
+    }
 
     async getByID(idGrupo: string, user : Usuario){
         const buscarGrupo = new Acao("BUSCAR_GRUPO", "001")
