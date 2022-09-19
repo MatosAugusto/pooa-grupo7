@@ -1,7 +1,5 @@
-import { Perfil } from "../classes/perfil";
 import { Aluno } from "../classes/aluno";
 import { Disciplina } from "../classes/disciplina";
-import { serviceUsuario } from "../services/serviceUsuario";
 
 export interface iIntegracao{
     (aluno: Aluno): void;
