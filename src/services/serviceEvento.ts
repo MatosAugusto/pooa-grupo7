@@ -2,22 +2,41 @@ import { Aluno } from "../classes/aluno";
 import { Evento } from "../classes/evento";
 import { Usuario } from "../classes/usuario";
 import { Local } from "../classes/local";
+import { checkStatusAluno } from "../interfaces/iIntegracao";
 import { repositoryEvento } from "../repositories/repositoryEvento";
+import { repositoryUsuario } from "../repositories/repositoryUsuario";
+import { repositoryAluno } from "../repositories/repositoryAluno";
+import { repositoryLocal } from "../repositories/repositoryLocal";
 
 export class serviceEvento{
     private eventoRepository = new repositoryEvento();
+    private usuarioRepository = new repositoryUsuario();
+    private alunoRepository = new repositoryAluno();
+    private localRepository = new repositoryLocal();
 
     async adicionarPalestrante(usuario: Usuario, evento: Evento){
+        if(!this.usuarioRepository.getByCpf(usuario.getCpf())){
+            throw new Error("Usuário não encontrado!");
+        }
         this.eventoRepository.insertPalestrante(usuario, evento);
         evento.insertPalestrante(usuario)
     }
     
     async adicionarOrganizador(aluno: Aluno, evento: Evento){
+        if(!this.alunoRepository.getByID(aluno.getRA())){
+            throw new Error("Aluno não encontrado!");
+        }
+        if(!checkStatusAluno(aluno.getRA())){
+            throw new Error("Aluno não está cumprindo os requisitos!");
+        }
         this.eventoRepository.insertOrganizador(aluno, evento);
         evento.insertOrganizador(aluno)
     }
     
     async alterarLocal(local: Local, evento: Evento){
+        if(!this.localRepository.getById(local.getCep())){
+            throw new Error("Local não encontrado!");
+        }
         this.alterarLocal(local, evento);
         evento.setLocal(local)
     }
