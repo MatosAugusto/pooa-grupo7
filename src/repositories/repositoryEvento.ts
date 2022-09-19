@@ -12,7 +12,7 @@ export class repositoryEvento {
     private connection = { execute(query: string) {} };
 
     insert(evento: Evento){
-      const query = `insert into evento (nome, dataCriacao, status, horaInicio, horaFim, cepLocal) values (${evento.getNome()}, ${evento.getData()}, ${evento.getStatus()}, ${evento.getHoraInicio()}, ${evento.getHoraFim()}, ${evento.getLocal().getCep()} )`;
+      const query = `insert into evento (nome, dataCriacao, statusEvento, horaInicio, horaFim, cepLocal) values (${evento.getNome()}, ${evento.getData()}, ${evento.getStatus()}, ${evento.getHoraInicio()}, ${evento.getHoraFim()}, ${evento.getLocal().getCep()} )`;
       let i : number = 0;
       
       while(i<evento.getOrganizadores().length){
@@ -62,7 +62,7 @@ export class repositoryEvento {
         while(resultSet5){
           grupos.push(g.getById(resultSet5.idGrupo));
         }
-        const evento = new Evento(resultSet.nome, resultSet.data, resultSet.status, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
+        const evento = new Evento(resultSet.nome, resultSet.data, resultSet.statusEvento, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
         eventos.push(evento);
       }
       return eventos;
@@ -99,7 +99,7 @@ export class repositoryEvento {
       while(resultSet5){
         grupos.push(g.getById(resultSet5.idGrupo));
       }
-      const evento = new Evento(resultSet.nome, resultSet.data, resultSet.status, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
+      const evento = new Evento(resultSet.nome, resultSet.data, resultSet.statusEvento, resultSet.horaInicio, resultSet.horaFim, organizadores, local, palestrantes, grupos);
       return evento;
     }
     
@@ -109,7 +109,7 @@ export class repositoryEvento {
     }
     
     update(evento: Evento){
-      const query = `update Evento set nome = ${evento.getNome}, status = ${evento.getStatus}, dataCriacao = ${evento.getData}, horaInicio = ${evento.getHoraInicio()}, horaFim = ${evento.getHoraFim}, cepLocal = ${evento.getLocal().getCep} where nome = ${evento.getNome()}`;
+      const query = `update Evento set nome = ${evento.getNome}, statusEvento = ${evento.getStatus}, dataCriacao = ${evento.getData}, horaInicio = ${evento.getHoraInicio()}, horaFim = ${evento.getHoraFim}, cepLocal = ${evento.getLocal().getCep} where nome = ${evento.getNome()}`;
     }
 
     insertPalestrante(usuario: Usuario, evento: Evento){
@@ -128,7 +128,7 @@ export class repositoryEvento {
       const query = `update Evento set dataCriacao = ${data} where nome = ${evento.getNome()}`;
     }
 
-    alterarStatus(status: string, evento: Evento){
-      const query = `update Evento set status = ${status} where nome = ${evento.getNome()}`;
+    alterarstatusEvento(statusEvento: string, evento: Evento){
+      const query = `update Evento set statusEvento = ${statusEvento} where nome = ${evento.getNome()}`;
     }
   }

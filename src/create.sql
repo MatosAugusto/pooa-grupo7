@@ -148,6 +148,7 @@ create table LocalEvento(
 create table Evento(
     nome varchar(100) not null, 
     dataCriacao varchar(20) not null,
+    statusEvento boolean not null,
     horaInicio varchar(20) not null,
     horaFim varchar(20) not null,
     cepLocal varchar(8) not null,
