@@ -1,5 +1,5 @@
-import { Aluno } from './aluno'
-import { Etapa } from './etapa'
+import { Aluno } from "./aluno"
+import { Etapa } from "./etapa"
 
 export class ProcessoSeletivo{
     private id : String;
@@ -8,6 +8,7 @@ export class ProcessoSeletivo{
     private nroVagas: number;
     private nroAprovados: number;
     private etapas: Etapa[];
+    
     constructor(data: string, nroInscritos: number, nroVagas: number, nroAprovados: number, etapas: Etapa[]){
         this.data = new Date(data);
         this.nroInscritos = nroInscritos;
@@ -15,20 +16,55 @@ export class ProcessoSeletivo{
         this.nroAprovados = nroAprovados;
         this.etapas = etapas;
     }
-    public getId(){
+    
+    public getID(){
         return this.id;
     }
+    
     public getData(){
         return this.data;
     }
+    
     public getNroInscritos(){
         return this.nroInscritos;
     }
+    
     public getNroVagas(){
         return this.nroVagas;
     }
+    
     public getNroAprovados(){
         return this.nroAprovados;
     }
+
+    public setID(id: string){
+        this.id = id;
+    }
+
+    public setData(data: Date){
+        this.data = data;
+    }
+
+    public setNroInscritos(numero: number){
+        this.nroInscritos = numero;
+    }
+
+    public setNroVagas(numero: number){
+        this.nroVagas = numero;
+    }
+
+    public setNroAprovados(numero: number){
+        this.nroAprovados = numero;
+    }
+
+    public insertEtapa(etapa: Etapa){
+        this.etapas.push(etapa);
+    }
+
+    public removeEtapa(etapa: Etapa){
+        const index = this.etapas.indexOf(etapa);
+        this.etapas.splice(index, 1);
+    }
+    
     public verificaAluno(aluno: Aluno){}
 }

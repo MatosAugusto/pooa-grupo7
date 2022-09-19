@@ -1,4 +1,4 @@
-import { Perfil } from './perfil'
+import { Perfil } from "./perfil"
 
 export class Usuario {
     private nome: string;
@@ -6,6 +6,7 @@ export class Usuario {
     private dataNascimento: Date;
     private senha: string;
     private perfil: Perfil;
+    
     constructor(nome: string, cpf: string, dataNascimento: Date, senha: string, perfil: Perfil){
         this.nome = nome;
         this.cpf = cpf;
@@ -13,25 +14,44 @@ export class Usuario {
         this.senha = senha;
         this.perfil = perfil;
     }
-    public atualizaUsuario(idUsuario: string, novosDados: Usuario){
-    }
-    public removeUsuario(idUsuario: string){}
+
     public getNome(){
         return this.nome;
     }
+    
     public getCpf(){
         return this.cpf;
     }
+    
     public getDataNascimento(){
         return this.dataNascimento;
     }
+    
     public getSenha(){
         return this.senha;
     }
+    
     public getPerfil() : Perfil{
         return this.perfil;
     }
+
+    public setNome(nome: string){
+        this.nome = nome;
+    }
+
+    public setCpf(cpf: string){
+        this.cpf = cpf;
+    }
+
+    public setDataNascimento(data: Date){
+        this.dataNascimento = data;
+    }
+
+    public setSenha(senha: string){
+        this.senha = senha;
+    }
+    
     public setPerfil(perfil: Perfil){
-        this.perfil=perfil;
+        this.perfil = perfil;
     }
 }

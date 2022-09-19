@@ -1,7 +1,7 @@
-import { Usuario } from './usuario'
-import { Aluno } from './aluno'
-import { Departamento } from './departamento'
-import { Evento } from './evento'
+import { Usuario } from "./usuario"
+import { Aluno } from "./aluno"
+import { Departamento } from "./departamento"
+import { Evento } from "./evento"
 
 export class GrupoAcademico{
     private id: string;
@@ -16,6 +16,7 @@ export class GrupoAcademico{
     private participantes: Aluno[];
     private listaEventos: Evento[];
     private eventosParticipados: Evento[];
+    
     constructor(id: string, nome: string, descricao: string, dataCriacao:string, status: boolean, departamento: Departamento, responsavel: Usuario, representantes: Aluno[], limiteParticipantes: number, participantes: Aluno[], listaEventos: Evento[], eventosParticipados: Evento[]){
         this.id = id;
         this.nome = nome;
@@ -31,7 +32,7 @@ export class GrupoAcademico{
         this.eventosParticipados = eventosParticipados;
     }
 
-    public getId(){
+    public getID(){
         return this.id;
     }
 
@@ -79,21 +80,71 @@ export class GrupoAcademico{
         return this.eventosParticipados;
     }
 
-    public alterarLimiteParticipantes(limiteParticipantes:number){
-        this.limiteParticipantes = limiteParticipantes;
+    public setID(id: string){
+        this.id = id;
     }
-    public mudarStatus(status: boolean){
-        this.status = status;
+
+    public setNome(nome: string){
+        this.nome = nome;
     }
-    public acrescentarEvento(evento: Evento){}
+
+    public setDescricao(descricao: string){
+        this.descricao = descricao;
+    }
+
+    public changeStatus(){
+        if(this.status){
+            this.status = false;
+        }else{
+            this.status = true;
+        }
+    }
+
+    public setDepartamento(departamento: Departamento){
+        this.departamento = departamento;
+    }
+
     public setResponsavel(usuario: Usuario){
         this.responsavel=usuario;
+    }    
+
+    public insertRepresentante(aluno: Aluno){
+        this.representantes.push(aluno);
     }
+    
+    public removeRepresentante(aluno: Aluno){
+        const index = this.representantes.indexOf(aluno);
+        this.representantes.splice(index, 1);
+    }
+
+    public setLimiteParticipantes(limiteParticipantes: number){
+        this.limiteParticipantes = limiteParticipantes;
+    }
+
     public insertParticipante(aluno: Aluno){
         this.participantes.push(aluno);
     }
+
     public removeParticipante(aluno: Aluno){
-        const index = this.participantes.indexOf( aluno );
+        const index = this.participantes.indexOf(aluno);
         this.participantes.splice(index, 1);
+    }
+
+    public insertEvento(evento: Evento){
+        this.listaEventos.push(evento);
+    }
+    
+    public removeEvento(evento: Evento){
+        const index = this.listaEventos .indexOf(evento);
+        this.listaEventos.splice(index, 1);
+    }
+
+    public insertEventoParticipado(evento: Evento){
+        this.eventosParticipados.push(evento);
+    }
+    
+    public removeEventoParticipado(evento: Evento){
+        const index = this.eventosParticipados.indexOf(evento);
+        this.eventosParticipados.splice(index, 1);
     }
 }

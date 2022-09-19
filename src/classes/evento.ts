@@ -1,7 +1,7 @@
-import { Usuario } from './usuario'
-import { Aluno } from './aluno'
-import { GrupoAcademico } from './grupoacademico'
-import { Local } from './local'
+import { Usuario } from "./usuario"
+import { Aluno } from "./aluno"
+import { GrupoAcademico } from "./grupoacademico"
+import { Local } from "./local"
 
 
 export class Evento{
@@ -12,7 +12,8 @@ export class Evento{
     private organizadores: Aluno[];
     private local: Local;
     private palestrantes: Usuario[];
-    private grupoResponsavel: GrupoAcademico[];
+    private gruposResponsaveis: GrupoAcademico[];
+    
     constructor(nome: string, data: string, horaInicio: number, horaFim: number, organizadores: Aluno[], local: Local, palestrantes: Usuario[], grupoResponsavel: GrupoAcademico[]){
         this.nome = nome; 
         this.data = new Date(data);
@@ -20,12 +21,10 @@ export class Evento{
         this.horaFim = this.data;
         this.horaInicio.setHours(horaInicio);
         this.horaFim.setHours(horaFim);
-        //this.horaInicio = new Date().setHours(horaInicio);
-       // this.horaFim = new Date().setHours(horaFim);
         this.organizadores = organizadores;
         this.local = local;
         this.palestrantes = palestrantes;
-        this.grupoResponsavel = grupoResponsavel;
+        this.gruposResponsaveis = grupoResponsavel;
     }
 
     public getNome(){
@@ -56,9 +55,57 @@ export class Evento{
         return this.palestrantes;
     }
     
-    public getGrupoResponsavel(){
-        return this.grupoResponsavel;
+    public getGruposResponsaveis(){
+        return this.gruposResponsaveis;
     }
 
-    public atualizarEvento(){}
+    public setNome(nome: string){
+        this.nome = nome;
+    }
+
+    public setDate(date: Date){
+        this.data = date;
+    }
+
+    public setHoraInicio(horaInicio: number){
+        this.horaInicio = this.data;
+        this.horaInicio.setHours(horaInicio);
+    }
+
+    public setHoraFim(horaFim: number){
+        this.horaFim = this.data;
+        this.horaFim.setHours(horaFim);
+    }
+
+    public insertOrganizador(organizador: Aluno){
+        this.organizadores.push(organizador);
+    }
+
+    public removeOrganizador(organizador: Aluno){
+        const index = this.organizadores.indexOf(organizador);
+        this.organizadores.splice(index, 1);
+    }
+
+    public setLocal(local: Local){
+        this.local = local;
+    }
+
+    public insertPalestrante(palestrante: Usuario){
+        this.palestrantes.push(palestrante);
+    }
+
+    public removePalestrante(palestrante: Usuario){
+        const index = this.palestrantes.indexOf(palestrante);
+        this.palestrantes.splice(index, 1);
+    }
+
+    public insertGrupoResponsavel(grupo: GrupoAcademico){
+        this.gruposResponsaveis.push(grupo);
+    }
+
+    public removeGrupoResponsavel(grupo: GrupoAcademico){
+        const index = this.gruposResponsaveis.indexOf(grupo);
+        this.gruposResponsaveis.splice(index, 1);
+    }
+
 }
