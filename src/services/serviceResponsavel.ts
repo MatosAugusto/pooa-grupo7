@@ -83,7 +83,7 @@ export class serviceResponsavel{
             throw new Error("Grupo não encontrado!");
         }
         grupo.changeStatus()
-        this.repositoryGrupoAcademico.update(grupo)
+        this.repositoryGrupoAcademico.update(grupo);
     }
 
     async checkResponsavel(responsavel:Usuario){
@@ -91,5 +91,13 @@ export class serviceResponsavel{
             throw new Error("Responsável inválido!");
         }
         return true;
+    }
+
+    async mudarLimiteGrupoAcademico(grupo: GrupoAcademico, limite: number){
+        if(!this.repositoryGrupoAcademico.getById(grupo.getID())){
+            throw new Error("Grupo não encontrado!");
+        }
+        grupo.setLimiteParticipantes(limite);
+        this.repositoryGrupoAcademico.update(grupo);
     }
 }

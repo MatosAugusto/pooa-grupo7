@@ -18,7 +18,7 @@ class controllerResponsavel{
     }
     
     async incluirParticipante(grupo: GrupoAcademico, participante: Aluno){
-        await this.serviceResponsavel.incluirParticipante(grupo, participante)
+        await this.serviceResponsavel.incluirParticipante(grupo, participante);
     }
     
     async alterarResponsavel(grupo: GrupoAcademico, novoResponsavel: Usuario){
@@ -26,10 +26,14 @@ class controllerResponsavel{
     }
     
     async removerParticipante(grupo: GrupoAcademico, participante: Aluno){
-        await this.serviceResponsavel.removerParticipante(grupo, participante)
+        await this.serviceResponsavel.removerParticipante(grupo, participante);
     }
     
     async mudarStatusGrupoAcademico(grupo: GrupoAcademico){
-        await this.serviceResponsavel.mudarStatusGrupoAcademico(grupo)
+        await this.serviceResponsavel.mudarStatusGrupoAcademico(grupo);
+    }
+
+    async alterarLimiteParticipante(grupo: GrupoAcademico, limite: number){
+        await this.serviceResponsavel.mudarLimiteGrupoAcademico(grupo, limite);
     }
 }
