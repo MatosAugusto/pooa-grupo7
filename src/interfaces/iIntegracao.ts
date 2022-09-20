@@ -7,12 +7,12 @@ export interface iIntegracao{
     
     export function checkStatusAluno(aluno: Aluno){
         let cpfAluno = aluno.getCpf();
+        //retorna true se tiver pendências e false se não tiver
         const api = "https://rest-api-projeto-pooa-grupo1.herokuapp.com/situacao?cpf="+cpfAluno;
+        //retorna o número de disciplinas que o aluno está inscrito
         const api2 = "https://rest-api-projeto-pooa-grupo5.herokuapp.com/situacao?cpf="+cpfAluno;
-        let disciplinas: Disciplina[] = api2.getDisciplinas();
-        let statusBiblioteca = api.getStatus();
 
-        if (!statusBiblioteca && disciplinas.length > 3){ 
+        if (!api && api2 >= 3){ 
             return true;
         }
         return false;
