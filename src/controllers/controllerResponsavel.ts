@@ -9,9 +9,7 @@ class controllerResponsavel{
     private serviceGA = new serviceGrupoAcademico();
 
     async criarGrupo(grupo: GrupoAcademico, responsavel: Usuario){
-        if(!this.serviceResponsavel.checkResponsavel(responsavel)){
-            throw new Error("Responsável inválido!");
-        }
+        this.serviceResponsavel.checkResponsavel(responsavel);
         await this.serviceGA.criarGrupo(grupo);
     }
 

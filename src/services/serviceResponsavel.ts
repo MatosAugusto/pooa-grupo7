@@ -88,7 +88,7 @@ export class serviceResponsavel{
 
     async checkResponsavel(responsavel:Usuario){
         if(responsavel.getPerfil().getNome()!="EM_DIA"){
-            return false;
+            throw new Error("Responsável inválido!");
         }
         return true;
     }
