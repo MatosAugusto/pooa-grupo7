@@ -1,7 +1,7 @@
 import { query } from 'express';
 import sqlite3 from 'sqlite3';
 
-const DATABASE_FILE = "./tmp.db";
+const DATABASE_FILE = "./pooa7.db";
 if(!DATABASE_FILE)
     throw new Error("DATABASE_FILE não informado");
 
