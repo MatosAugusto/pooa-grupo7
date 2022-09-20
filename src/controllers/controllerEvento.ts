@@ -1,5 +1,6 @@
 import { Aluno } from "../classes/aluno";
 import { Evento } from "../classes/evento";
+import { GrupoAcademico } from "../classes/grupoacademico";
 import { Local } from "../classes/local";
 import { Usuario } from "../classes/usuario";
 import { serviceEvento } from "../services/serviceEvento"
@@ -29,6 +30,14 @@ class controllerEvento{
 
     adicionarOrganizador(organizador: Aluno, evento: Evento){
         this.serviceEvento.adicionarOrganizador(organizador, evento);
+    }
+    
+    adicionarGrupoOrganizador(grupo: GrupoAcademico, evento: Evento){
+        this.serviceEvento.adicionarGrupoOrganizador(grupo, evento);
+    }
+
+    removerGrupoOrganizador(grupo: GrupoAcademico, evento: Evento){
+        this.serviceEvento.removerGrupoOrganizador(grupo, evento);
     }
 
     alterarLocal(local: Local, evento: Evento){

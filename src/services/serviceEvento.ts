@@ -7,6 +7,7 @@ import { repositoryEvento } from "../repositories/repositoryEvento";
 import { repositoryUsuario } from "../repositories/repositoryUsuario";
 import { repositoryAluno } from "../repositories/repositoryAluno";
 import { repositoryLocal } from "../repositories/repositoryLocal";
+import { GrupoAcademico } from "../classes/grupoacademico";
 
 export class serviceEvento{
     private eventoRepository = new repositoryEvento();
@@ -46,8 +47,24 @@ export class serviceEvento{
             throw new Error("Aluno não está cumprindo os requisitos!");
         }
         this.eventoRepository.insertOrganizador(aluno, evento);
-        evento.insertOrganizador(aluno)
+        evento.insertOrganizador(aluno);
     }
+
+    async adicionarGrupoOrganizador(grupo: GrupoAcademico, evento: Evento){
+        if(!this.alunoRepository.getByID(grupo.getID())){
+            throw new Error("Grupo não encontrado!");
+        }
+        evento.insertGrupoResponsavel(grupo);
+        this.eventoRepository.update(evento);
+    }
+
+    async removerGrupoOrganizador(grupo: GrupoAcademico, evento: Evento){
+        if(!this.alunoRepository.getByID(grupo.getID())){
+            throw new Error("Grupo não encontrado!");
+        }
+        evento.removeGrupoResponsavel(grupo);
+        this.eventoRepository.update(evento);
+    }    
     
     async alterarLocal(local: Local, evento: Evento){
         if(!this.localRepository.getById(local.getCep())){

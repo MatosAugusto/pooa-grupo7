@@ -21,7 +21,7 @@ class controllerResponsavel{
         await this.serviceResponsavel.incluirParticipante(grupo, participante)
     }
     
-    async trocarResponsavel(grupo: GrupoAcademico, novoResponsavel: Usuario){
+    async alterarResponsavel(grupo: GrupoAcademico, novoResponsavel: Usuario){
         await this.serviceResponsavel.trocarResponsavel(grupo, novoResponsavel);
     }
     
