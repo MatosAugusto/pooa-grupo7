@@ -60,6 +60,9 @@ Matheus Silva
     * Finalização do Banco de Dados
     * Estruturação quase completa da API
     * Criação quase completa da integração CLASSE -> CONTROLLER -> SERVICE -> REPOSITORY
+* 1.0
+    * Criação completa da integração CLASSE -> CONTROLLER -> SERVICE -> REPOSITORY
+    * API semi-completa
 
  
  ## Links Externos
