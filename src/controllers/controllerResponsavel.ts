@@ -33,7 +33,7 @@ class controllerResponsavel{
         await this.serviceResponsavel.mudarStatusGrupoAcademico(grupo);
     }
 
-    async alterarLimiteParticipante(grupo: GrupoAcademico, limite: number){
+    async alterarLimiteParticipantes(grupo: GrupoAcademico, limite: number){
         await this.serviceResponsavel.mudarLimiteGrupoAcademico(grupo, limite);
     }
 }
