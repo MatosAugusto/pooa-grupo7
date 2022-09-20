@@ -88,6 +88,7 @@ create table ProcessoSeletivo(
     nroInscritos int,
     nroVagas int,
     nroAprovados int,
+    etapaAtual int,
     primary key(idProcesso) 
 );
 
@@ -148,11 +149,14 @@ create table LocalEvento(
 create table Evento(
     nome varchar(100) not null, 
     dataCriacao varchar(20) not null,
+    statusEvento boolean not null,
     horaInicio varchar(20) not null,
     horaFim varchar(20) not null,
     cepLocal varchar(8) not null,
+    statusEvento varchar(12) not null,
     primary key(nome),
-    foreign key (cepLocal) references LocalEvento(cep)
+    foreign key (cepLocal) references LocalEvento(cep),
+    CONSTRAINT status_check CHECK (statusEvento IN('A_ACONTECER', 'ACONTECENDO', 'CANCELADO'))
 );
 
 create table Organizadores(

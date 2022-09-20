@@ -1,5 +1,8 @@
-import { Acoes } from './classes/acoes'
+import { Acao } from './classes/acao'
 import { Usuario } from './classes/usuario'
 
-const resourcesListaAluno = new Acoes("ACESSO_SISTEMA", "001");
+const resourcesListaAluno = new Acao("ACESSO_SISTEMA", "001");
 
+class main{
+    
+}

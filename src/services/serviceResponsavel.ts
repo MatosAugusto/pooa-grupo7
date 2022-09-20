@@ -1,10 +1,9 @@
-import { repositoryUsuario } from "../repositorio/repositoryUsuario";
-import { repositoryPerfil } from "../repositorio/repositoryPerfil";
-import { repositoryGrupoAcademico } from "../repositorio/repositoryGrupoAcademico";
 import { Usuario } from "../classes/usuario";
 import { GrupoAcademico } from "../classes/grupoacademico";
 import { Aluno } from "../classes/aluno";
-
+import { repositoryUsuario } from "../repositories/repositoryUsuario";
+import { repositoryPerfil } from "../repositories/repositoryPerfil";
+import { repositoryGrupoAcademico } from "../repositories/repositoryGrupoAcademico";
 
 export class serviceResponsavel{
     private repositoryUsuario = new repositoryUsuario();
@@ -76,6 +75,29 @@ export class serviceResponsavel{
         }
 
         grupo.removeParticipante(aluno);
+        this.repositoryGrupoAcademico.update(grupo);
+    }
+
+    async mudarStatusGrupoAcademico(grupo: GrupoAcademico){
+        if(!this.repositoryGrupoAcademico.getById(grupo.getID())){
+            throw new Error("Grupo não encontrado!");
+        }
+        grupo.changeStatus()
+        this.repositoryGrupoAcademico.update(grupo);
+    }
+
+    async checkResponsavel(responsavel:Usuario){
+        if(responsavel.getPerfil().getNome()!="EM_DIA"){
+            throw new Error("Responsável inválido!");
+        }
+        return true;
+    }
+
+    async mudarLimiteGrupoAcademico(grupo: GrupoAcademico, limite: number){
+        if(!this.repositoryGrupoAcademico.getById(grupo.getID())){
+            throw new Error("Grupo não encontrado!");
+        }
+        grupo.setLimiteParticipantes(limite);
         this.repositoryGrupoAcademico.update(grupo);
     }
 }

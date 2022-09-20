@@ -6,6 +6,7 @@ export class repositoryPerfil {
     insert(perfil: Perfil){
       const query = `insert into perfil (nome, criadoEm, alteradoEm) values (${perfil.getNome()},${perfil.getCriadoEm()},${perfil.getAlteradoEm()})`;
     }
+
     getAll(){
       let perfis: Perfil[] = [];
       const query = `select * from perfil`;
@@ -17,6 +18,7 @@ export class repositoryPerfil {
       }
       return perfis;
     }
+
     getByName(nome:String): Perfil{
       const query = `select * from perfil where nome = ${nome}`;
       const resultSet: any = this.connection.execute(query);
@@ -26,11 +28,13 @@ export class repositoryPerfil {
 
       return perfil;
     }
+
     delete(perfil: Perfil) {
       const nome = perfil.getNome();
       const query = `delete from perfil where nome = ${nome}`;
    
     }
+    
     update(perfil: Perfil){
       const query = `update Perfil set alteradoEm = ${perfil.getAlteradoEm()} where nome = ${perfil.getNome()}`;
     }
