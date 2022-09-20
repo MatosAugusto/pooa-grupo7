@@ -2,8 +2,9 @@ import Acoes from '../models/acoes'
 import database from './database'
 const acoesRepository = {
     criar: (acao: Acoes, callback: (id?: number) => void) => {
-        const sql = 'INSERT INTO Acoes (nome, codigo) VALUES (?, ?)'
-        const params = [acao.nome, acao.codigo]
+        const sql = 'INSERT INTO Acoes (codigo, nome) VALUES (?, ?)';
+        const params = [acao.nome, acao.codigo];
+        console.log("vai rodar");
         database.run(sql, params, function(_err) {
             callback(this?.lastID)
         })

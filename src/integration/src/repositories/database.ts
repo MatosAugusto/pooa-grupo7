@@ -1,81 +1,92 @@
 import sqlite3  from 'sqlite3'
 
-const DBSOURCE = 'db.sqlite'
-//const DBSOURCE = 'pooa7.db'
+//const DBSOURCE = 'db.sqlite'
+const DBSOURCE = 'pooa7.db';
 const SQL_TABLES_CREATE = `
     CREATE TABLE Acoes (
-        id INTEGER PRIMARY KEY,
-        codigo VARCHAR(4),
-        nome VARCHAR(256)
-    ),
+        "id" INTEGER 
+        PRIMARY KEY("id" AUTOINCREMENT),
+        "codigo" TEXT,
+        "nome" TEXT
+    );
     CREATE TABLE GrupoAcademico (
-        idGrupo VARCHAR(5) PRIMARY KEY,
-        nome VARCHAR(256),
-        descricao VARCHAR(256),
-        dataCriacao VARCHAR(20),
-        statusGrupo BOOLEAN NOT NULL DEFAULT FALSE,
-        idDepartamento INTEGER,
-        cpfResponsavel VARCHAR(11),
-        limiteParticipantes INTEGER
-    ),
+        "idGrupo" TEXT PRIMARY KEY,
+        "nome" TEXT,
+        "descricao" TEXT,
+        "dataCriacao" TEXT,
+        "statusGrupo" INTEGER NOT NULL DEFAULT 0,
+        "idDepartamento" INTEGER,
+        "cpfResponsavel" TEXT,
+        "limiteParticipantes" INTEGER
+    );
     CREATE TABLE Disciplina (
-        idDisciplina INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome VARCHAR(256)
-    ),
+        "idDisciplina" INTEGER
+        PRIMARY KEY("idDisciplina" AUTOINCREMENT),
+        "nome" TEXT
+    );
     CREATE TABLE Aluno (
-        cpfUsuario VARCHAR(11),
-        ra VARCHAR(10) PRIMARY KEY,
-        statusBiblioteca BOOLEAN NOT NULL DEFAULT FALSE
-    ),
+        "cpfUsuario" TEXT,
+        "ra" TEXT
+        PRIMARY KEY("ra"),
+        "statusBiblioteca" INTEGER NOT NULL DEFAULT 0
+    );
     CREATE TABLE Departamento (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome VARCHAR(256),
-        sigla VARCHAR(5)
-    ),
+        "id" INTEGER 
+        PRIMARY KEY("id" AUTOINCREMENT),
+        "nome" TEXT,
+        "sigla" TEXT
+    );
     CREATE TABLE Evento (
-        nome VARCHAR(100) PRIMARY KEY,
-        dataCriacao VARCHAR(20),
-        horaInicio VARCHAR(20),
-        horaFim VARCHAR(20),
-        cepLocal VARCHAR(8)
-    ),
+        "nome" TEXT
+        PRIMARY KEY("nome"),
+        "dataCriacao" TEXT,
+        "horaInicio" TEXT,
+        "horaFim" TEXT,
+        "cepLocal" TEXT
+    );
     CREATE TABLE Etapa (
-        idEtapa INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome VARCHAR(256),
-        descricao VARCHAR(256)
-    ),
+        "idEtapa" INTEGER
+        PRIMARY KEY("idEtapa" AUTOINCREMENT),
+        "nome" TEXT,
+        "descricao" TEXT
+    );
     CREATE TABLE Local (
-        cep VARCHAR(8) PRIMARY KEY,
-        logradouro VARCHAR(100),
-        numero INTEGER,
-        bairro VARCHAR(100),
-        descricao VARCHAR(100)
-    ),
+        "cep" TEXT
+        PRIMARY KEY("cep"),
+        "logradouro" TEXT,
+        "numero" INTEGER,
+        "bairro" TEXT,
+        "descricao" TEXT
+    );
     CREATE TABLE Perfil (
-        nome VARCHAR(30) PRIMARY KEY,
-        criadoEm VARCHAR(20),
-        alteradoEm VARCHAR(20)
-    ),
+        "nome" TEXT
+        PRIMARY KEY ("nome"),
+        "criadoEm" TEXT,
+        "alteradoEm" TEXT
+    );
     CREATE TABLE ProcessoSeletivo (
-        idProcesso INTEGER PRIMARY KEY AUTOINCREMENT,
-        dataProcesso VARCHAR(20),
-        nroInscritos INTEGER,
-        nroVagas INTEGER,
-        nroAprovados INTEGER
-    ),
+        "idProcesso" INTEGER
+        PRIMARY KEY("idProcesso" AUTOINCREMENT),
+        "dataProcesso" TEXT,
+        "nroInscritos" INTEGER,
+        "nroVagas" INTEGER,
+        "nroAprovados" INTEGER
+    );
     CREATE TABLE Professor (
-        cpfUsuario VARCHAR(11),
-        idDepartamento INTEGER,
-        nroUniversidade INTEGER PRIMARY KEY AUTOINCREMENT,
-        statusBiblioteca BOOLEAN NOT NULL DEFAULT FALSE
-    ),
+        "cpfUsuario" TEXT,
+        "idDepartamento" INTEGER,
+        "nroUniversidade" INTEGER
+        PRIMARY KEY("nroUniversidade" AUTOINCREMENT),
+        "statusBiblioteca" INTEGER NOT NULL DEFAULT 0
+    );
     CREATE TABLE USUARIO (
-        nome VARCHAR(256),
-        cpf VARCHAR(11) PRIMARY KEY,
-        dataNascimento VARCHAR(20),
-        senha VARCHAR(256),
-        perfil VARCHAR(30)
-    )
+        "nome" TEXT,
+        "cpf" TEXT
+        PRIMARY KEY("cpf"),
+        "dataNascimento" TEXT,
+        "senha" TEXT,
+        "perfil" TEXT
+    );
     `
 
 const database = new sqlite3.Database(DBSOURCE, (err) => {
@@ -85,15 +96,15 @@ const database = new sqlite3.Database(DBSOURCE, (err) => {
         throw err;
     } else {
         console.log('Base de dados conectada com sucesso.');
-        database.run(SQL_TABLES_CREATE, (err) => {
-            if (err) {
-                // Possivelmente a tabela já foi criada
-                console.log('Teste');
-                console.log(err);
-            } else {
-                console.log('Tabela itens criada com sucesso.');
-            }
-        })
+        // database.run(SQL_TABLES_CREATE, (err) => {
+        //     if (err) {
+        //         // Possivelmente a tabela já foi criada
+        //         console.log('Teste');
+        //         console.log(err.message);
+        //     } else {
+        //         console.log('Tabela itens criada com sucesso.');
+        //     }
+        // })
     }
 })
 export default database
