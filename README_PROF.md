@@ -98,8 +98,8 @@ Durante uma das monitorias, o Zanan explicou e demonstrou sobre o padrão Profil
 
 Um bom exemplo desse padrão sendo utilizado de forma significativa é na função [`async trocarResponsavel(grupo: GrupoAcademico, responsavel: Usuario`] presente no [*serviceResponsável*](ttps://github.com/MatosAugusto/pooa-grupo7/blob/main/src/services/serviceResponsavel.ts). Ao novo responsável ser analisado, o perfil dele é trocado: de *Professor* para *Responsavel* e do antigo volta a ser apenas *Professor*. Um detalhe dessa implementação, é que qualquer nova ação que o Responsável de um grupo acadêmico passa a poder realizar, apenas precisamos adicionar a Action no Profile *Responsável*.
 
-    **Disponível em:** [`./src/classes/perfil.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/classes/perfil.ts)
-    **Disponível em:** [`./src/classes/acoes.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/classes/acao.ts)
+   **Disponível em:** [`./src/classes/perfil.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/classes/perfil.ts)
+   **Disponível em:** [`./src/classes/acoes.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/classes/acao.ts)
 
 ## Desenvolvimento do projeto
 Como forma 4 apresentações, tentamos seguir ao máximo o cronograma proposto. No entanto, por conta de ser um cronograma muito apertado, tivemos muita dificuldade, principalmente com a API REST.
