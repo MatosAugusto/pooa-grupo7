@@ -96,9 +96,11 @@ Utilizamos um conceito similar ao de "Clean Architecture", o sistema possui cama
 ### Padrão Profile/Action
 Durante uma das monitorias, o Zanan explicou e demonstrou sobre o padrão Profile/Action. Que consta na definição de um profile para cada usuário do sistema que o permite, ou não, realizar certas ações. Esse padrão é uma das chaves para que o projeto tenha uma maior Manutenibilidade, um dos principais pontos da disciplina. Para qualquer nova definição sobre o que o usuário pode fazer, ou a inserção de um novo tipo de usuário, basta a manuntenção no Profile/Action. 
 
-Um bom exemplo desse padrão sendo utilizado de forma significativa é na função [`async trocarResponsavel(grupo: GrupoAcademico, responsavel: Usuario`] presente no [*serviceResponsável*](ttps://github.com/MatosAugusto/pooa-grupo7/blob/main/src/services/serviceResponsavel.ts). Ao novo responsável ser analisado, o perfil dele é trocado: de *Professor* para *Responsavel* e do antigo volta a ser apenas *Professor*. Um detalhe dessa implementação, é que qualquer nova ação que o Responsável de um grupo acadêmico passa a poder realizar, apenas precisamos adicionar a Action no Profile *Responsável*.
+Um bom exemplo desse padrão sendo utilizado de forma significativa é na função `async trocarResponsavel(grupo: GrupoAcademico, responsavel: Usuario` presente no [*serviceResponsável*](ttps://github.com/MatosAugusto/pooa-grupo7/blob/main/src/services/serviceResponsavel.ts). Ao novo responsável ser analisado, o perfil dele é trocado: de *Professor* para *Responsavel* e do antigo volta a ser apenas *Professor*. Um detalhe dessa implementação, é que qualquer nova ação que o Responsável de um grupo acadêmico passa a poder realizar, apenas precisamos adicionar a Action no Profile *Responsável*.
+
 
    **Disponível em:** [`./src/classes/perfil.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/classes/perfil.ts)
+   
    **Disponível em:** [`./src/classes/acoes.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/classes/acao.ts)
 
 ## Desenvolvimento do projeto
