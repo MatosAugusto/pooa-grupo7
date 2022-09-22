@@ -103,8 +103,10 @@ Logo antes da primeira apresentação, um integrante do nosso grupo desistiu da 
 Para criar o primeiro diagrama, baseado no primeiro documento de requisitos e o que foi pedido no cronograma, tivemos certas dificuldades, principalmente em relação aos relacionamentos. O digrama criado ainda era simples, só contava com as classes, atributos e relacionamentos. Nesse primeiro momento não nos preocupamos com pacotes.
 
 ### Apresentação 2
+Para a segunda apresenação, o documento de requisitos foi modificado, implicando em uma mudança no nosso diagrama.Nesse segundo diagrama, começamos a pensar no Design Patterns. Além disso, criamos esse repositório onde o grupo trabalhou durante todo o processo. Como nessa apresentação, o diagrama era o mair importante, focamos nele e apenas criamos as classes no git.
 
 ### Apresentação 3
+Foi a primeira apresentação focada nos códigos, criamos toda lógica e conseguimos definir melhor como nosso sistema funcionaria. Percebemos, que a gente complicou alguns pontos no diagrama, que na prática não alterava tanto o funcionamento do código. A partir dessa apresentação já tinhamos definido o uso da arquitetura utilizada e dos padrões. Outra medida, foi a criação/definição definitiva dos pacotes. Além da base utilizada para a criação do BD em mySQL.
 
 ### Apresentação 4
-
+A apresentação final foi simples: finalização total do projeto. Obviamente, não conseguimos implementar a melhor foma possível do código. no entano, conseguimos um resultado excelente para um pouco tempo. A maior parte do trabalho foi focada na criação completa da API, com certeza o ponto que mais tivemos dificuldade, por não ter sido tratado em aula nada sobre o tema. A estrutura básica da API estava pronta desde a última apresentção, no entanto faltav a integração com o banco de dados, além da documentação, e upar ela no Heroku (escolhido por maior parte dos outros grupos).
