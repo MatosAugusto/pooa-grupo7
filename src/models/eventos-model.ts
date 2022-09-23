@@ -1,5 +1,5 @@
 import { dbQuery, dbQueryFirst } from "../services/db";
-import { Evento } from "../classes/evento";
+import { Evento } from "../classes-integration/evento";
 
 const insertEvento = async (evento: Evento) => {
     await dbQuery(`INSERT INTO Evento (nome, dataCriacao, horaInicio, horaFim, cepLocal) VALUES (?, ?, ?, ?, ?)`, [evento.nome, evento.dataCriacao, evento.horaInicio, evento.horaFim, evento.cepLocal]);
@@ -13,7 +13,7 @@ const updateEvento = async (evento: Evento, id: string) => {
 }
 
 const listEvento = async () => {
-    const retorno =  await dbQuery(`SELECT * FROM Evento`);
+    const retorno =  await dbQuery(`SELECT * FROM Evento`, []);
     return retorno as Evento[];
 }
 

@@ -1,5 +1,5 @@
 import { dbQuery, dbQueryFirst } from "../services/db";
-import { Acao } from "../classes/acao";
+import { Acao } from "../classes-integration/acao";
 
 const insertAcao = async (acao: Acao) => {
     await dbQuery(`INSERT INTO Acoes (codigo, nome) VALUES (?, ?)`, [acao.codigo, acao.nome]);

@@ -1,5 +1,5 @@
 import { dbQuery, dbQueryFirst } from "../services/db";
-import { GrupoAcademico } from "../classes/grupoacademico";
+import { GrupoAcademico } from "../classes-integration/grupoacademico";
 
 const insertGpAcademico = async (gpAcad: GrupoAcademico) => {
     await dbQuery(`INSERT INTO GrupoAcademico (nome, descricao, dataCriacao, statusGrupo, idDepartamento, cpfResponsavel, limiteParticipantes) VALUES (?, ?, ?, ?, ?, ?, ?)`, [gpAcad.nome, gpAcad.descricao, gpAcad.dataCriacao, gpAcad.statusGrupo, gpAcad.idDepartamento, gpAcad.cpfResponsavel, gpAcad.limiteParticipantes]);

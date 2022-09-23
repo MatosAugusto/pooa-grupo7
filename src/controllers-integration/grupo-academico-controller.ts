@@ -1,7 +1,7 @@
 import { ok } from 'assert';
 import {Request, Response} from 'express';
 import { GrupoAcademicoModel } from '../models/grupo-academico-model';
-import { GrupoAcademico } from '../classes/grupoacademico';
+import { GrupoAcademico } from '../classes-integration/grupoacademico';
 import { badRequest, internalServerError, notFound, validateNumber } from '../services/utils';
 
 const insertGrupoAcademico = (req: Request, res: Response) => {

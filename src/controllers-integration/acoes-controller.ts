@@ -1,7 +1,7 @@
 import { ok } from 'assert';
 import {Request, Response} from 'express';
 import {acaoModel } from '../models/acoes-model';
-import { Acao } from '../classes/acao';
+import { Acao } from '../classes-integration/acao';
 import { badRequest, internalServerError, notFound, validateNumber } from '../services/utils';
 
 const insertAcao = (req: Request, res: Response) => {
