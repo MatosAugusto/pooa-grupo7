@@ -65,6 +65,21 @@ const getGrupoAcademicoNome = (req: Request, res: Response) =>{
     .catch(err => internalServerError(res, err));
 }
 
+const getGrupoAcademicoRA = (req: Request, res: Response) =>{
+    const ra = req.params.ra;
+    {
+        if(!ra)
+            return badRequest(res, 'codigo invalido');
+    }
+    GrupoAcademicoModel.getGrupoAcademicoRA(ra)
+    .then(gpAcademico => {
+        if(gpAcademico)
+            res.json(gpAcademico);
+        else
+            return notFound(res);
+    })
+    .catch(err => internalServerError(res, err));
+}
 
 const deleteGrupoAcademico = async (req: Request, res: Response) =>{
     const id =  parseInt(req.params.id);
@@ -174,5 +189,6 @@ export const gpAcadController = {
     ativarGpAcademico,
     desativarGpAcademico,
     trocarResponsavelGpAcademico,
-    getGrupoAcademicoNome
+    getGrupoAcademicoNome,
+    getGrupoAcademicoRA
 }

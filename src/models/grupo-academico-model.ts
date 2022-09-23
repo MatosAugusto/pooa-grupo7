@@ -45,6 +45,12 @@ const getGrupoAcademicoNome = async (nome: string) => {
     return retorno as GrupoAcademico | undefined;
 }
 
+const getGrupoAcademicoRA = async (ra: string) => {
+
+    const retorno = await dbQuery(`SELECT G.* FROM Aluno A LEFT JOIN Participantes P ON( P.raAluno = A.ra) LEFT JOIN GrupoAcademico G ON( P.idGrupo = G.idGrupo) WHERE A.ra = ? `, [ra]);
+    return retorno as GrupoAcademico | undefined;
+}
+
 const deleteGrupoAcademico = async (id: number) => {
     await dbQueryFirst(`DELETE FROM GrupoAcademico WHERE idGrupo = ?`, [id]);
 }
@@ -58,5 +64,6 @@ export const GrupoAcademicoModel = {
     ativarGpAcademico,
     desativarGpAcademico,
     trocarResponsavelGpAcademico,
-    getGrupoAcademicoNome
+    getGrupoAcademicoNome,
+    getGrupoAcademicoRA
 }

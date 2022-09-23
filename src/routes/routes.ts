@@ -20,6 +20,8 @@ gpAcadRouter.put('/ativarGrupo/:id', gpAcadController.ativarGpAcademico);
 gpAcadRouter.put('/desativarGrupo/:id', gpAcadController.desativarGpAcademico);
 gpAcadRouter.put('/trocarResponsavel/:id', gpAcadController.trocarResponsavelGpAcademico);
 gpAcadRouter.get('/buscarNome/:nome', gpAcadController.getGrupoAcademicoNome);
+gpAcadRouter.get('/buscarRA/:ra', gpAcadController.getGrupoAcademicoRA);
+
 
 const eventoRouter = Router();
 eventoRouter.post('/', eventoController.insertEvento);
