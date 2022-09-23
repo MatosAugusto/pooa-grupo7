@@ -16,15 +16,15 @@ export class repositoryEvento {
       let i : number = 0;
       
       while(i<evento.getOrganizadores().length){
-        const query2 =  `insert into Organizadores (nomeEvento, raAluno) values (${evento.getNome}, ${evento.getOrganizadores[i].getRA()} )`;
+        const query2 =  `insert into Organizadores (nomeEvento, raAluno) values (${evento.getNome}, ${evento.getOrganizadores()[i].getRA()} )`;
       }
       i = 0;
       while(i<evento.getPalestrantes.length){
-        const query3 =  `insert into Palestrantes (nomeEvento, cpfUsuario) values (${evento.getNome}, ${evento.getPalestrantes[i].getCpf()} )`;
+        const query3 =  `insert into Palestrantes (nomeEvento, cpfUsuario) values (${evento.getNome}, ${evento.getPalestrantes()[i].getCpf()} )`;
       }
       i = 0;
       while(i<evento.getGruposResponsaveis.length){
-        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${evento.getNome}, ${evento.getGruposResponsaveis[i].getId()}, 'ORGANIZADOR' )`;
+        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${evento.getNome}, ${evento.getGruposResponsaveis()[i].getID()}, 'ORGANIZADOR' )`;
       }
     }
     

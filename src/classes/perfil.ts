@@ -6,16 +6,17 @@ export class Perfil {
     private alteradoEm: Date;
     private acoes: Acao[];
     
-    constructor(nome: string, criadoEm: string, alteradoEm: string){
+    constructor(nome: string, criadoEm: string, alteradoEm: string, acoes: Acao[]){
         this.nome = nome;
         this.criadoEm = new Date(criadoEm);
         this.alteradoEm = new Date(alteradoEm);
+        this.acoes = acoes;
     }
 
     public podeExecutar(acao: Acao): boolean{
         const podeAcessar =
-        acao.nome === "CRIAR_EVENTO" ||
-        acao.nome === "DESATIVAR_GRUPO";
+        acao.getNome() === "CRIAR_EVENTO" ||
+        acao.getNome() === "DESATIVAR_GRUPO";
 
         if(podeAcessar){
             return true;

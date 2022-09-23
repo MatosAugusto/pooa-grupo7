@@ -3,8 +3,8 @@ import { Acao } from "../classes-integration/acao";
 
 const insertAcao = async (acao: Acao) => {
     await dbQuery(`INSERT INTO Acoes (codigo, nome) VALUES (?, ?)`, [acao.codigo, acao.nome]);
-    let retorno = await dbQuery(`SELECT seq AS Id FROM sqlite_sequence WHERE name = 'Acoes' `, []);
-    return getAcao(retorno[0].Id);
+    //let retorno = await dbQuery(`SELECT seq AS Id FROM sqlite_sequence WHERE name = 'Acoes LIMIT 1' `, []);
+    return console.log('Inserido com sucesso');
 }
 
 const updateAcao = async (acao: Acao, id: string) => {

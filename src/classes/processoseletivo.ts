@@ -9,7 +9,8 @@ export class ProcessoSeletivo{
     private etapas: Etapa[];
     private etapaAtual : number;
     
-    constructor(data: string, nroInscritos: number, nroVagas: number, nroAprovados: number, etapas: Etapa[]){
+    constructor(id: string, data: string, nroInscritos: number, nroVagas: number, nroAprovados: number, etapas: Etapa[]){
+        this.id = id;
         this.data = new Date(data);
         this.nroInscritos = nroInscritos;
         this.nroVagas = nroVagas;

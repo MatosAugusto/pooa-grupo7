@@ -1,17 +1,7 @@
 import { Router } from "express";
-import { productController } from "../controllers-integration/product-controller";
-import { productModel } from "../models/products";
-import { acaoModel } from "../models/acoes-model";
 import { acaoController } from "../controllers-integration/acoes-controller";
 import { gpAcadController } from "../controllers-integration/grupo-academico-controller";
 import { eventoController } from "../controllers-integration/evento-controller";
-
-const productRouter = Router();
-productRouter.post('/', productController.insertProduct);
-productRouter.get('/', productController.listProducts);
-productRouter.get('/:id', productController.getProduct);
-productRouter.delete('/:id', productController.deleteProduct);
-productRouter.put('/:id', productController.updateProduct);
 
 const acaoRouter = Router();
 acaoRouter.post('/', acaoController.insertAcao);
@@ -40,7 +30,6 @@ eventoRouter.put('/:id', eventoController.updateEvento);
 
 
 export {
-    productRouter,
     acaoRouter,
     gpAcadRouter,
     eventoRouter

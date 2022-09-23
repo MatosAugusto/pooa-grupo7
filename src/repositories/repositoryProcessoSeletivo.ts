@@ -19,14 +19,14 @@ export class repositoryProcessoSeletivo {
       const processos : ProcessoSeletivo[] = [];
       
       while (resultSet){
-        const query2 = `SELECT * FROM EtapaProcesso WHERE processo = ${resultSet.id}`;
+        const query2 = `SELECT * FROM EtapaProcesso WHERE processo = ${resultSet.processo_id}`;
         const resultSet2: any = this.connection.execute(query2);
         let etapas : Etapa[] = [];
         let e = new repositoryEtapa;
         while(resultSet2){
           etapas.push(e.getById(resultSet2.etapa));
         }
-        const ps = new ProcessoSeletivo(resultSet.data, resultSet.nroInscritos, resultSet.nroVagas, resultSet.nroAprovados,etapas);
+        const ps = new ProcessoSeletivo(resultSet.id, resultSet.data, resultSet.nroInscritos, resultSet.nroVagas, resultSet.nroAprovados,etapas);
         processos.push(ps);
       }
       return processos;
@@ -43,7 +43,7 @@ export class repositoryProcessoSeletivo {
       while(resultSet2){
         etapas.push(e.getById(resultSet2.etapa));
       }
-      const ps = new ProcessoSeletivo(resultSet.data, resultSet.nroInscritos, resultSet.nroVagas, resultSet.nroAprovados,etapas);
+      const ps = new ProcessoSeletivo(resultSet.id, resultSet.data, resultSet.nroInscritos, resultSet.nroVagas, resultSet.nroAprovados,etapas);
       return ps;
     }
 

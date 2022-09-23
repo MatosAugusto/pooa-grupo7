@@ -16,22 +16,22 @@ export class repositoryGrupoAcademico {
       let i : number = 0;
       
       while(i<grupo.getParticipantes.length){
-        const query2 =  `insert into participantes (idGrupo, raAluno) values (${grupo.getID()}, ${grupo.getParticipantes[i].getRA()} )`;
+        const query2 =  `insert into participantes (idGrupo, raAluno) values (${grupo.getID()}, ${grupo.getParticipantes()[i].getRA()} )`;
       }
       
       i = 0;
       while(i<grupo.getRepresentantes.length){
-        const query3 =  `insert into Representantes (idGrupo, raAluno) values (${grupo.getID}, ${grupo.getRepresentantes[i].getRA()} )`;
+        const query3 =  `insert into Representantes (idGrupo, raAluno) values (${grupo.getID}, ${grupo.getRepresentantes()[i].getRA()} )`;
       }
       
       i = 0;
       while(i<grupo.getListaEventos.length){
-        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${grupo.getListaEventos[i].getNome}, ${grupo.getID()}, 'ORGANIZADOR' )`;
+        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${grupo.getListaEventos()[i].getNome()}, ${grupo.getID()}, 'ORGANIZADOR' )`;
       }
       
       i = 0;
       while(i<grupo.getEventosParticipados.length){
-        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${grupo.getEventosParticipados[i].getNome}, ${grupo.getID()}, 'PARTICIPANTE' )`;
+        const query4 =  `insert into GrupoEvento (nomeEvento, idGrupo, tipo) values (${grupo.getEventosParticipados()[i].getNome}, ${grupo.getID()}, 'PARTICIPANTE' )`;
       }
     }
     

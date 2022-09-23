@@ -7,7 +7,7 @@ interface iAluno{
     (aluno: Aluno, ps : ProcessoSeletivo): void;
 }    
     
-    function inscreverNoPS(aluno, ps){
+    function inscreverNoPS(aluno: Aluno, ps: ProcessoSeletivo){
         const aluno2 = new serviceAluno();
-        aluno.inscreverNoPs(aluno, ps);
+        aluno2.inscreverNoPS(aluno, ps);
     }

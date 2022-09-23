@@ -11,15 +11,15 @@ export const openConnection = () => {
 }
 
 export const dbQueryFirst = async (query: string, params: any[]) => {
-    const retorno = await dbQuery(query, params);
-    return retorno[0];
+    const  retorno = await dbQuery(query, params);
+    return retorno;
 }
 
 export const dbQuery = (query: string, params: any[]) => {
     let db = openConnection();
     return new Promise((resolve, reject) =>{
         db.all(query, params, (err, rows) =>{
-            if(err)
+            if(err instanceof Error)
                 reject(err);
             else 
                 resolve(rows);

@@ -1,8 +1,7 @@
-import { ok } from 'assert';
 import {Request, Response} from 'express';
 import { eventoModel } from '../models/eventos-model';
 import { Evento } from '../classes-integration/evento';
-import { badRequest, internalServerError, notFound, validateNumber } from '../services/utils';
+import { badRequest, internalServerError, notFound} from '../services/utils';
 
 const insertEvento = (req: Request, res: Response) => {
     {

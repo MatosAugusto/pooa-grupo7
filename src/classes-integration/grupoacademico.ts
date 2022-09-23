@@ -1,6 +1,4 @@
-import { Usuario } from "./usuario"
 import { Aluno } from "./aluno"
-import { Departamento } from "./departamento"
 import { Evento } from "./evento"
 
 export class GrupoAcademico{

@@ -3,10 +3,11 @@ import { GrupoAcademico } from "../classes-integration/grupoacademico";
 
 const insertGpAcademico = async (gpAcad: GrupoAcademico) => {
     await dbQuery(`INSERT INTO GrupoAcademico (nome, descricao, dataCriacao, statusGrupo, idDepartamento, cpfResponsavel, limiteParticipantes) VALUES (?, ?, ?, ?, ?, ?, ?)`, [gpAcad.nome, gpAcad.descricao, gpAcad.dataCriacao, gpAcad.statusGrupo, gpAcad.idDepartamento, gpAcad.cpfResponsavel, gpAcad.limiteParticipantes]);
-    console.log("testee")
-    let retorno = await dbQuery(`SELECT seq AS Id FROM sqlite_sequence WHERE name = 'GrupoAcademico' `, []);
+    //console.log("testee")
+    //let retorno = await dbQuery(`SELECT seq AS Id FROM sqlite_sequence WHERE name = 'GrupoAcademico' `, []);
     
-    return getGrupoAcademico(retorno[0].Id);
+    //return getGrupoAcademico(retorno[0].Id);
+    return console.log('Inserido com sucesso');
 }
 
 const updateGpAcademico = async (gpAcad: GrupoAcademico, id: number) => {

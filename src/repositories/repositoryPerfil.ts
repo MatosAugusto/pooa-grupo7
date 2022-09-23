@@ -12,7 +12,7 @@ export class repositoryPerfil {
       const query = `select * from perfil`;
       const resultSet: any = this.connection.execute(query);
       while(resultSet){
-        let perfil: any = new Perfil(resultSet.nome, resultSet.criadoEm, resultSet.alteradoEm);
+        let perfil: any = new Perfil(resultSet.nome, resultSet.criadoEm, resultSet.alteradoEm, resultSet.acoes);
 
         perfis.push(perfil);
       }
@@ -24,7 +24,7 @@ export class repositoryPerfil {
       const resultSet: any = this.connection.execute(query);
        
       
-      const perfil: any = new Perfil(resultSet.nome, resultSet.criadoEm,resultSet.alteradoEm);
+      const perfil: any = new Perfil(resultSet.nome, resultSet.criadoEm,resultSet.alteradoEm, resultSet.acoes);
 
       return perfil;
     }

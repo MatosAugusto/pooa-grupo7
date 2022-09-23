@@ -3,8 +3,9 @@ import { Evento } from "../classes-integration/evento";
 
 const insertEvento = async (evento: Evento) => {
     await dbQuery(`INSERT INTO Evento (nome, dataCriacao, horaInicio, horaFim, cepLocal) VALUES (?, ?, ?, ?, ?)`, [evento.nome, evento.dataCriacao, evento.horaInicio, evento.horaFim, evento.cepLocal]);
-    let retorno = await dbQuery(`SELECT seq AS Id FROM sqlite_sequence WHERE name = 'Evento' `, []);
-    return getEvento(retorno[0].Id);
+    //let retorno = await dbQuery(`SELECT seq AS Id FROM sqlite_sequence WHERE name = 'Evento' `, []);
+    //return getEvento(retorno[0].Id);
+    return console.log('Inserido com sucesso');
 }
 
 const updateEvento = async (evento: Evento, id: string) => {
