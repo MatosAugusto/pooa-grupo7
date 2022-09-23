@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { productController } from "../controllers/product-controller";
+import { productController } from "../controllers-integration/product-controller";
 import { productModel } from "../models/products";
 import { acaoModel } from "../models/acoes-model";
-import { acaoController } from "../controllers/acoes-controller";
-import { gpAcadController } from "../controllers/grupo-academico-controller";
-import { eventoController } from "../controllers/evento-controller";
+import { acaoController } from "../controllers-integration/acoes-controller";
+import { gpAcadController } from "../controllers-integration/grupo-academico-controller";
+import { eventoController } from "../controllers-integration/evento-controller";
 
 const productRouter = Router();
 productRouter.post('/', productController.insertProduct);
