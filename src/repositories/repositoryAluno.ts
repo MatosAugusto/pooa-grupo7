@@ -1,10 +1,7 @@
 import { Aluno } from '../classes/aluno'
-import { Departamento } from '../classes/departamento';
 import { Disciplina } from '../classes/disciplina';
-import { GrupoAcademico } from '../classes/grupoacademico';
 import { Usuario } from '../classes/usuario';
 import { repositoryDisciplina } from './repositoryDisciplinas';
-import { repositoryGrupoAcademico } from './repositoryGrupoAcademico';
 import { repositoryUsuario } from './repositoryUsuario';
 
 export class repositoryAluno {

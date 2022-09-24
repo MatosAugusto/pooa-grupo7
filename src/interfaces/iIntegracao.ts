@@ -1,5 +1,4 @@
 import { Aluno } from "../classes/aluno";
-import { Disciplina } from "../classes/disciplina";
 
 export interface iIntegracao{
     (aluno: Aluno): void;
@@ -17,9 +16,6 @@ export interface iIntegracao{
             return true;
         }
         return false;
-        // if (!api && api2 >= 3){ 
-        //     return true;
-        // }
-        // return false;
+
     }
   

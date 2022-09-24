@@ -2,9 +2,7 @@
 
 Esse `README-PROF.md` foi criado, exclusivamente, para a avaliação da disciplina Programação Orientada a Objetos Avançada, com o Professor Valter Vieira de Camargo (Ufscar).
 
-## Table of contents
 - [Sistema para Gerenciamento de Grupos Acadêmicos](#sistema-para-gerenciamento-de-grupos-acadêmicos)
-  - [Table of contents](#table-of-contents)
   - [Informações Básica](#informações-básica)
     - [Grupo 7 - Sistema de Gerenciamento de Grupos Acadêmicos](#grupo-7---sistema-de-gerenciamento-de-grupos-acadêmicos)
   - [Detalhes Técnicos](#detalhes-técnicos)
@@ -12,10 +10,14 @@ Esse `README-PROF.md` foi criado, exclusivamente, para a avaliação da discipli
     - [Banco de Dados](#banco-de-dados)
     - [API](#api)
     - [Arquitetura](#arquitetura)
+    - [Padrão Profile/Action](#padrão-profileaction)
+    - [Fluxograma dos Dados](#fluxograma-dos-dados)
   - [Desenvolvimento do projeto](#desenvolvimento-do-projeto)
     - [Apresentação 1](#apresentação-1)
     - [Apresentação 2](#apresentação-2)
-
+    - [Apresentação 3](#apresentação-3)
+    - [Apresentação 4](#apresentação-4)
+    - [Conclusão do Projeto](#conclusão-do-projeto)
 
 ## Informações Básica
 
@@ -50,6 +52,19 @@ Obviamente, a camada mais interna do sistema. Foi criada no mySql apenas com o i
 ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) 
 
 Com certeza a parte mais dificil de criar. Como não tivemos nenhuma aula sobre, acabamos tendo que descobrir e aprender como fazer.
+
+A API foi upada no Heroku e disponibilizamos o link para os 2 grupos que precisamos realizar a integração. Até a data de entrega, conseguimos implementar 2 funcionalidades através da API. A primeira, é a necessidade dos outros grupos: **Listagem de todos os grupos acadêmicos de um determinado aluno**: [Teste Criado](https://api-grupo7.herokuapp.com/api/v1/grupoAcademico/buscarRA/791085). A segunda funcionalidade é a listagem de todos os grupos acadêmicos: [Teste Criado](https://api-grupo7.herokuapp.com/api/v1/grupoAcademico)
+
+
+**Disponível em**: https://api-grupo7.herokuapp.com/api/v1/grupoAcademico/buscarRA/791085
+
+**Disponível em**: https://api-grupo7.herokuapp.com/api/v1/grupoAcademico
+
+
+Outro ponto importante é como utilizaremos as outras APIs. As duas são utilizadas em apenas uma função, para checkar o status do aluno, que esta presente em `./src/interfaces/iIntegracao.ts`. Pensando em uma possível manuntenção futura, decidimos criar uma interface responsável apenas por isso. O que nos permite apenas altera-la em caso de alguma mudança com qualquer uma das APIs.
+
+
+**Disponível em**: [`./src/interfaces/iIntegracao.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/create.sql)
 
 ### Arquitetura
 
@@ -103,6 +118,13 @@ Um bom exemplo desse padrão sendo utilizado de forma significativa é na funç�
    
    **Disponível em:** [`./src/classes/acoes.ts`](https://github.com/MatosAugusto/pooa-grupo7/blob/main/src/classes/acao.ts)
 
+
+### Fluxograma dos Dados
+
+![Fluxograma](https://uploaddeimagens.com.br/images/004/034/913/full/Request.png?1663983955)
+
+A partir dessa imagem é possível compreendeer melhor como funciona o sistema. O pedido chega por meio do controller, esse controller é chamado a partir da view que, por exemplo, pode ser um site. O controller aciona o service que realiza toda lógica necessária para a execução da ação requisitada, que aciona o Repository, seja para pegar uma informação ou para colocar uma nova informação, que é o único com acesso ao Banco de Dados.
+
 ## Desenvolvimento do projeto
 Como forma 4 apresentações, tentamos seguir ao máximo o cronograma proposto. No entanto, por conta de ser um cronograma muito apertado, tivemos muita dificuldade, principalmente com a API REST.
 
@@ -119,3 +141,9 @@ Foi a primeira apresentação focada nos códigos, criamos toda lógica e conseg
 
 ### Apresentação 4
 A apresentação final foi simples: finalização total do projeto. Obviamente, não conseguimos implementar a melhor foma possível do código. no entano, conseguimos um resultado excelente para um pouco tempo. A maior parte do trabalho foi focada na criação completa da API, com certeza o ponto que mais tivemos dificuldade, por não ter sido tratado em aula nada sobre o tema. A estrutura básica da API estava pronta desde a última apresentção, no entanto faltav a integração com o banco de dados, além da documentação, e upar ela no Heroku (escolhido por maior parte dos outros grupos).
+
+
+### Conclusão do Projeto
+De fato esse foi um projeto muito desafiador, muito por conta do pouco tempo para conseguirmos pensar em todos os detalhes e, principalmente, construir uma parte de integração que foi uma completa novidade. No entanto, um dos maiores ensinamentos que o projeto acaba nos deixando é: Pensar na manutenibilidade. Para nós, esse foi o ponto principal da matéria. 
+
+Tão importante quanto um sistema extremamente funcional, é um sistema organizado e pensado nas futuras manutenções. Qualquer novo requisito que surgir, acreditamos que o nosso sistema não sofrerá muito e isso se deve as aulas e os ensinamentos da Disciplina. 
